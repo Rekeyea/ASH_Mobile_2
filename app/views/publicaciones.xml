@@ -1,0 +1,22 @@
+<Alloy>
+	<Collection src="Publicacion"/>
+	<Window id="publicaciones">
+		<ListView id="listaPublicaciones" defaultItemTemplate="template">
+			<Templates>
+				<ItemTemplate name="template">
+					<View class="mainContent">
+						<ImageView bindId="imagen" class="imagen"></ImageView>
+						<View class="verText">
+							<Label bindId="titulo" class="titulo"></Label>
+							<Label bindId="descripcion" class="descripcion"></Label>
+						</View>
+					</View>
+					<ImageView bindId="tipo" class="tipo"></ImageView>
+				</ItemTemplate>
+			</Templates>
+			<ListSection id="onlySection" dataCollection="Publicacion" dataTransform="transformarPublicacion">
+				<ListItem titulo:text="{titulo}" descripcion:text="{descripcion}" imagen:image="{foto}" tipo:image="{tipoImg}"></ListItem>
+			</ListSection>
+		</ListView>
+	</Window>
+</Alloy>

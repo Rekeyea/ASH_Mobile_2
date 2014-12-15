@@ -1,0 +1,20 @@
+".container": {
+	backgroundColor:"#3CB954"
+}
+
+"#fbButton":{
+	backgroundColor:"#3B5998",
+	backgroundSelectedColor:"#274585",
+	color:"white",
+	left:20,
+	right:20,
+	bottom:20,
+	image:"/images/facebook.png"
+}
+
+"#logo":{
+	top:20,
+	left:20,
+	right:20,
+	image:"/paw.png"
+}

@@ -1,0 +1,6 @@
+<Alloy>
+	<Window class="container">
+		<ImageView id="logo"></ImageView>
+		<Button id="fbButton" onClick="IniciarSesionFacebook">Iniciar Sesión con Facebook</Button>
+	</Window>
+</Alloy>
