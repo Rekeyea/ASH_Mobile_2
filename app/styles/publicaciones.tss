@@ -60,3 +60,19 @@
 	height:Ti.UI.SIZE,
 	layout:"vertical"
 }
+
+"#mapview" : {
+    region : {
+        latitude:33.74511,
+        longitude:-84.38993,
+        latitudeDelta:0.01,
+        longitudeDelta:0.01
+    }
+},
+"#appcHQ" : {
+    latitude: 37.390749,
+    longitude: -122.081651,
+    title: "Appcelerator Headquarters",
+    subtitle: "Mountain View, CA",
+    pincolor: Alloy.Globals.Map.ANNOTATION_RED
+}

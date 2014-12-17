@@ -10,6 +10,7 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 Alloy.Globals.Facebook = require("facebook");
+Alloy.Globals.Map = require("ti.map");
 Alloy.Globals.Service = require("Service");
 Alloy.Globals.URL = "http://192.168.1.5/ASHServices/Service1.svc/";
 Alloy.Globals.Publicaciones = Alloy.createCollection("Publicacion");
