@@ -15,3 +15,4 @@ Alloy.Globals.Service = require("Service");
 Alloy.Globals.URL = "http://192.168.1.5/ASHServices/Service1.svc/";
 Alloy.Globals.Publicaciones = Alloy.createCollection("Publicacion");
 Alloy.Globals.ImagenesTipos = ["","/adopt.png","/lost.png","/found.png","/stolen.png","/badtreat.png"];
+Alloy.Globals.MapaImagenesTipos = ["","/adopt-min.png","/lost-min.png","/found-min.png","/stolen-min.png","/badtreat-min.png"];

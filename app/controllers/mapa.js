@@ -29,6 +29,10 @@ var delta = 0.01;
 
 CargarMapa(centro,pubsAMostrar);
 
+function BuscarPublicaciones(params){
+	
+}
+
 function MapPublicacionAnnotation(publicaciones){
 	var listOfAnnotations = _.map(pubsAMostrar,function(publicacion){
 		var imgArr = imagenTipo[publicacion.tipo].split(".");
@@ -55,6 +59,14 @@ function CargarMapa(centro,listaPublicaciones){
 	};
 	$.mapview.addAnnotations(MapPublicacionAnnotation(listaPublicaciones));
 }
+
+function SeMovio(evt){
+	Ti.API.info("LATITUD VIEJA: "+centro.latitud+" :: LATITUD NUEVA: "+evt.latitude);
+	Ti.API.info("LONGITUD VIEJA: "+centro.longitud+" :: LONGITUD NUEVA: "+evt.longitude);
+	Ti.API.info(JSON.stringify(evt));
+}
+
+$.mapview.addEventListener("regionchanged",SeMovio);
 
 /*//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
 if(Ti.Geolocation.locationServicesEnabled){
