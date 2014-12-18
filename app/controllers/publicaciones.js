@@ -6,7 +6,7 @@ $.publicaciones.addEventListener("close", function(){
 });
 //*********************** VARIABLES DE CONTROL **************************
 var tipos = ["Todas","En Adopción","Perdido","Encontrado","Robado","Maltratado"];
-var tiposImgs = ["/adopt.png","/lost.png","/found.png","/stolen.png","/badtreat.png"];
+var tiposImgs = Alloy.Globals.ImagenesTipos;
 
 
 
@@ -65,6 +65,11 @@ function ObtenerPublicaciones(){
 	};
 	service.Ejecutar(postData);
 }
+
+function IrAMapa(){
+	Alloy.createController("mapa").getView().open();
+}
+
 
  
 
