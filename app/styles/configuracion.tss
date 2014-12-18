@@ -1,0 +1,55 @@
+
+"#configuracion":{
+	backgroundColor:"#F7F7F7"
+}
+"#sideMenu":{
+	height: Ti.UI.FILL,
+	backgroundColor:"#F7F7F7",
+	width: 200,
+	left:0,
+	top:0,
+}
+
+".tableViewMenu":{
+	color:"#51A58D",
+	left: 15,
+	height: 60,
+}
+
+".line":{
+	height:2,
+	bottom:0,
+	left:0,
+	right:0,
+	borderWidth:1,
+	borderColor:"#c7c7cc",
+}
+
+"#switchConf[platform=android]":{
+	height : 45,
+	left : 20,
+	color : "#545454",
+	style : Ti.UI.Android.SWITCH_STYLE_CHECKBOX,
+	textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+}  
+
+"#switchConf[platform=ios]":{
+	height : 45,
+	left : 20,
+	textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+} 
+
+"TextField": {
+  	borderRadius:10,
+  	borderColor: "#c7c7cc",
+  	borderWidth: 0.5,
+  	color: "#51A58D",
+  	top: 10,
+  	width: 250, height: 35,
+}
+
+".LabelConf": {
+	color: "#c7c7cc",
+	left: 10,
+	width: 100,
+}

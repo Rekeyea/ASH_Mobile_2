@@ -1,6 +1,5 @@
 <Alloy>
-	<Collection src="Publicacion"/>
-	<Window id="publicaciones">
+	<Window id="padrinos">
 		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
 			<MenuItem  title="Menu" onClick="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
@@ -25,25 +24,7 @@
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 			</TableView>
 		</View>
-		<View id="contenedor"  zIndex="1">
-			<ListView id="listaPublicaciones" defaultItemTemplate="template">
-				<Templates>
-					<ItemTemplate name="template">
-						<View class="mainContent">
-							<ImageView bindId="imagen" class="imagen"></ImageView>
-							<View class="verText">
-								<Label bindId="titulo" class="titulo"></Label>
-								<Label bindId="descripcion" class="descripcion"></Label>
-							</View>
-						</View>
-						<ImageView bindId="tipo" class="tipo"></ImageView>
-					</ItemTemplate>
-				</Templates>
-				<ListSection id="onlySection" dataCollection="Publicacion" dataTransform="transformarPublicacion">
-					<ListItem titulo:text="{titulo}" descripcion:text="{descripcion}" imagen:image="{foto}" tipo:image="{tipoImg}"></ListItem>
-				</ListSection>
-			</ListView>
+		<View id="contenedor" class="container" zIndex="1">
 		</View>
-
 	</Window>
 </Alloy>
