@@ -1,0 +1,43 @@
+<Alloy>
+	<Window id="sobreASH">
+		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
+			<MenuItem  title="Menu" onClick="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
+        </Menu>
+        <LeftNavButton platform="ios">
+    		<Button onClick="Menu" left="10" top="5" image="menu.png"  height="20" width="23" />
+    	</LeftNavButton>
+		<View id="sideMenu">
+		    <TableView>
+				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" ></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Lista" onClick="verPublicaciones"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH"></TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+			</TableView>
+		</View>
+		<View id="contenedor" zIndex="1">
+			<ScrollView>
+				<View layout="vertical">
+				<Label id="labASH" top="20">\n Animales sin Hogar se creó el 16 de noviembre de 2003. Es una Asociación Civil sin Fines de Lucro con Personería Jurídica 9985, integrada exclusivamente por voluntarios. 
+La organización fue creada con el fin de brindar una base de datos a nivel nacional de animales perdidos, encontrados y en adopción, y a su vez darle apoyo a aquellas protectoras que albergaban animales. \n
+
+Nos fuimos enfrentando a la triste realidad de que las protectoras no podian asumir mas animales de los que ya tenian y continuamente llegaban a nuestro sitio web pedidos de ayuda para animales que estaban en pesimas condiciones. Eso hizo que nosotros tambien comenzaramos a recoger animales y ahora pasamos a estar en la misma situación que el resto de las protectoras.\n 
+
+Hoy Animales sin Hogar es responsable de un promedio de 372 perros, 180 gatos y 175 caballos, en total contando con chanchos, vacas, etc. hay 750 animales en la chacra hoy en dia. 
+Estos se encuentran en perfectas condiciones de salud, viven sueltos, y cada uno cuenta con un lugar para dormir. Reciben alimento balanceado y se higieniza el lugar diariamente. También cuentan con asistencia veterinaria, vacunas, medicamentos, son castrados machos y hembras. etc. \n
+En una chacra privada mantenemos unos 175 caballos de carro, requisados por maltrato. Ellos comen a diario ración y fardos, cuentan con asistencia veterinaria, los machos son castrados, etc. Viven de forma natural pero bajo el cuidado de personas que velan por su bienestar. Nunca mas serán utilizados para trabajar y mucho menos recibirán malos tratos.\n 
+				</Label>
+				</View>
+			</ScrollView>
+		</View>
+	</Window>
+</Alloy>

@@ -1,6 +1,5 @@
 <Alloy>
-	<Collection src="Publicacion"/>
-	<Window id="publicaciones">
+	<Window id="configuracion">
 		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
 			<MenuItem  title="Menu" onClick="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
@@ -25,25 +24,25 @@
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 			</TableView>
 		</View>
-		<View id="contenedor"  zIndex="1">
-			<ListView id="listaPublicaciones" defaultItemTemplate="template">
-				<Templates>
-					<ItemTemplate name="template">
-						<View class="mainContent">
-							<ImageView bindId="imagen" class="imagen"></ImageView>
-							<View class="verText">
-								<Label bindId="titulo" class="titulo"></Label>
-								<Label bindId="descripcion" class="descripcion"></Label>
-							</View>
-						</View>
-						<ImageView bindId="tipo" class="tipo"></ImageView>
-					</ItemTemplate>
-				</Templates>
-				<ListSection id="onlySection" dataCollection="Publicacion" dataTransform="transformarPublicacion">
-					<ListItem titulo:text="{titulo}" descripcion:text="{descripcion}" imagen:image="{foto}" tipo:image="{tipoImg}"></ListItem>
-				</ListSection>
-			</ListView>
+		<View id="contenedor" class="container" zIndex="1">
+			<TableView layout="horizontal" top="20">
+				<TableViewRow layout="horizontal">
+					<Label text="Nombre" class="LabelConf"></Label>
+					<TextField left="70" hintText="Nombre"></TextField>
+				</TableViewRow>
+				<TableViewRow layout="horizontal" >
+					<Label text="Mail" class="LabelConf"></Label>
+					<TextField left="70" hintText="Mail"></TextField>
+				</TableViewRow>
+				<TableViewRow layout="horizontal">
+					<Label text="Telefono" class="LabelConf"></Label>
+					<TextField left="70" hintText="Telefono"></TextField>
+				</TableViewRow>
+				<TableViewRow layout="horizontal">
+					<Label text="Notificaciones" class="LabelConf"></Label>
+					<Switch left="70" id="switchConf"></Switch>
+				</TableViewRow>
+			</TableView>
 		</View>
-
 	</Window>
 </Alloy>
