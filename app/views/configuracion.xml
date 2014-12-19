@@ -44,6 +44,7 @@
 					<Switch id="switchConf" value="{$.configuracionModel.Notificaciones}"></Switch>
 				</TableViewRow>
 			</TableView>
+			<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>
 		</View>
 	</Window>
 </Alloy>

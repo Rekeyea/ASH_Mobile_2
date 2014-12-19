@@ -57,8 +57,11 @@
   	right:20
 }
 
-".LabelConf": {
-	color: "#c7c7cc",
-	left: 10,
-	width: 100,
+"#btnSave":{
+	backgroundColor:"#C7C7CC",
+	backgroundSelectedColor:"#8E8E93",
+	color:"white",
+	right:20,
+	width:"50%",
+	bottom:20
 }

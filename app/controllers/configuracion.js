@@ -69,11 +69,13 @@ function adoptar(){
 }
 
 function CambiarInformacion(){
-	Ti.API.info("&&&&&&&&&&&&& lala &&&&&&&&&&&&");
+	$.configuracionModel.set({"Nombre":$.nombre.value});
+	$.configuracionModel.set({"Mail":$.mail.value});
+	$.configuracionModel.set({"Telefono":$.telefono.value});
+	$.configuracionModel.set({"Notificaciones":$.switchConf.value});
 	var model = $.configuracionModel.toJSON();
+	Ti.API.info("******** MODELO ***********");
+	Ti.API.info(JSON.stringify(model));
 	Ti.App.Properties.setObject("DatosUsuario",model);
 }
-
-$.configuracionModel.on("change",CambiarInformacion);
-
 
