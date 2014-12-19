@@ -3,9 +3,16 @@
 	backgroundColor:"#F7F7F7"
 }
 
+"#contenedor":{
+	backgroundColor:"white",
+	width:Titanium.UI.FILL
+}
+
 
 "#labASH":{
 	color:"#51A58D",
+	left:20,
+	right:20
 }
 
 "#sideMenu":{

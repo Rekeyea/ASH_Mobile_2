@@ -4,6 +4,22 @@ $.configuracion.addEventListener("close", function(){
     $.destroy();
 });
 
+
+var obj = Ti.App.Properties.getObject("DatosUsuario");
+var uid = Alloy.Globals.Facebook.uid;
+var nombre = obj.Nombre || "";
+var mail = obj.Mail || "";
+var tel = obj.Telefono || "";
+var notifs = obj.Notificaciones || 0;
+
+$.configuracionModel.set({
+	"UID":uid,
+	"Nombre":nombre,
+	"Mail":mail,
+	"Telefono":tel,
+	"Notificaciones":notifs
+});
+
 var opened = false;
 function Menu(){
 	if(!opened){
@@ -51,4 +67,13 @@ function padrinos(){
 function adoptar(){
 	Alloy.createController("adopciones").getView().open();
 }
+
+function CambiarInformacion(){
+	Ti.API.info("&&&&&&&&&&&&& lala &&&&&&&&&&&&");
+	var model = $.configuracionModel.toJSON();
+	Ti.App.Properties.setObject("DatosUsuario",model);
+}
+
+$.configuracionModel.on("change",CambiarInformacion);
+
 

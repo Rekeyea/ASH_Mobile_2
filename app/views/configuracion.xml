@@ -1,4 +1,5 @@
 <Alloy>
+	<Model src="Configuracion" instance="true" id="configuracionModel"></Model>
 	<Window id="configuracion">
 		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
 			<MenuItem  title="Menu" onClick="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
@@ -26,21 +27,21 @@
 		</View>
 		<View id="contenedor" class="container" zIndex="1">
 			<TableView layout="horizontal" top="20">
-				<TableViewRow layout="horizontal">
-					<Label text="Nombre" class="LabelConf"></Label>
-					<TextField left="70" hintText="Nombre"></TextField>
+				<TableViewRow>
+					<!--<Label text="Nombre" class="LabelConf"></Label>-->
+					<TextField hintText="Nombre" id="nombre" value="{$.configuracionModel.Nombre}"></TextField>
 				</TableViewRow>
-				<TableViewRow layout="horizontal" >
-					<Label text="Mail" class="LabelConf"></Label>
-					<TextField left="70" hintText="Mail"></TextField>
+				<TableViewRow>
+					<!--<Label text="Mail" class="LabelConf"></Label>-->
+					<TextField hintText="Mail" id="mail" value="{$.configuracionModel.Mail}"></TextField>
 				</TableViewRow>
-				<TableViewRow layout="horizontal">
-					<Label text="Telefono" class="LabelConf"></Label>
-					<TextField left="70" hintText="Telefono"></TextField>
+				<TableViewRow>
+					<!--<Label text="Telefono" class="LabelConf"></Label>-->
+					<TextField hintText="Telefono" id="telefono" value="{$.configuracionModel.Telefono}"></TextField>
 				</TableViewRow>
-				<TableViewRow layout="horizontal">
-					<Label text="Notificaciones" class="LabelConf"></Label>
-					<Switch left="70" id="switchConf"></Switch>
+				<TableViewRow>
+					<!--<Label text="Notificaciones" class="LabelConf"></Label>-->
+					<Switch id="switchConf" value="{$.configuracionModel.Notificaciones}"></Switch>
 				</TableViewRow>
 			</TableView>
 		</View>

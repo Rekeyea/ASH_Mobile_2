@@ -7,6 +7,15 @@ var rotaciones = 0;
 
 fb.addEventListener("login",function(evt){
 	if(evt.success){
+		Ti.API.info("************ DATOS DE FACEBOOK **************");
+		var data = JSON.parse(evt.data);
+		var obj = {
+			"UID":evt.data.id,
+			"Nombre": Alloy.Globals.String.urlDecode(data.name),
+			"Mail":Alloy.Globals.String.urlDecode(data.email),
+		};
+		Ti.App.Properties.setObject("DatosUsuario",obj);
+		Ti.API.info(JSON.stringify(obj));
 		IniciarSesion(evt.uid);
 	}else{
 		Ti.UI.createAlertDialog({
