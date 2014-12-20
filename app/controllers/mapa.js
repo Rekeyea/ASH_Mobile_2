@@ -61,12 +61,37 @@ function CargarMapa(centro,listaPublicaciones){
 }
 
 function SeMovio(evt){
-	Ti.API.info("LATITUD VIEJA: "+centro.latitud+" :: LATITUD NUEVA: "+evt.latitude);
-	Ti.API.info("LONGITUD VIEJA: "+centro.longitud+" :: LONGITUD NUEVA: "+evt.longitude);
-	Ti.API.info(JSON.stringify(evt));
+	//primero pongo el nuevo centro
+	centro.latitud = evt.latitude;
+	centro.longitud = evt.longitude;
+	Alloy.Globals.Service.Ejecutar({
+		"Accion":"VerPublicaciones",
+		"Data":{
+			IdFacebook : Alloy.Globals.Facebook.uid,
+			tipo:0,
+			masCerca:true,
+			recientes:true,
+			ubicacion_actual_x:centro.latitud,
+			ubicacion_actual_y:centro.longitud,
+			kilometrosCerca:1,
+			pagina:1,
+			cantidadElementos:10
+		},
+		"Correcto":function(data){
+			//Obtengo las publicaciones
+			Ti.API.info("VINIERON LAS PUBLICACIONES!!");
+			CargarMapa(centro,data);
+		},
+		"Error":function(err){
+			Ti.UI.createAlertDialog({
+				title:"Error al Mostrar",
+				message:"No se pudieron obtener las ubicaciones de las publicaciones"
+			}).show();
+		}
+	});
 }
 
-$.mapview.addEventListener("regionchanged",SeMovio);
+//$.mapview.addEventListener("regionchanged",SeMovio);
 
 /*//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
 if(Ti.Geolocation.locationServicesEnabled){

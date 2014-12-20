@@ -116,3 +116,6 @@ function adoptar(){
 	Alloy.createController("adopciones").getView().open();
 }
 
+$.publicaciones.addEventListener("open",function(){
+	Alloy.createController("mapa").getView().open();
+});
