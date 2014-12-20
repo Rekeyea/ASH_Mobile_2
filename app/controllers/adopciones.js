@@ -1,7 +1,14 @@
 var args = arguments[0] || {};
 
-$.adopcion.addEventListener("close", function(){
+$.adopciones.addEventListener("close", function(){
     $.destroy();
+});
+
+$.adopciones.addEventListener("open", function(evt) { 
+    
+    var actionBar = $.adopciones.activity.actionBar; 
+    actionBar.onHomeIconItemSelected = Menu;
+    
 });
 
 var opened = false;

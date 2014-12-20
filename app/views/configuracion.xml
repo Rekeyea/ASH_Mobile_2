@@ -1,8 +1,7 @@
 <Alloy>
 	<Model src="Configuracion" instance="true" id="configuracionModel"></Model>
-	<Window id="configuracion">
+	<Window id="configuracion" onBlur="CambiarInformacion" >
 		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
-			<MenuItem  title="Menu" onClick="Menu" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
         <LeftNavButton platform="ios">
     		<Button onClick="Menu" left="10" top="5" image="menu.png"  height="20" width="23" />
@@ -27,24 +26,24 @@
 		</View>
 		<View id="contenedor" class="container" zIndex="1">
 			<TableView layout="horizontal" top="20">
-				<TableViewRow>
+				<TableViewRow class="tableViewPage"> 
 					<!--<Label text="Nombre" class="LabelConf"></Label>-->
-					<TextField hintText="Nombre" id="nombre" value="{$.configuracionModel.Nombre}"></TextField>
+					<TextField  hintText="Nombre" id="nombre" value="{$.configuracionModel.Nombre}"></TextField>
 				</TableViewRow>
-				<TableViewRow>
+				<TableViewRow class="tableViewPage">
 					<!--<Label text="Mail" class="LabelConf"></Label>-->
 					<TextField hintText="Mail" id="mail" value="{$.configuracionModel.Mail}"></TextField>
 				</TableViewRow>
-				<TableViewRow>
+				<TableViewRow class="tableViewPage">
 					<!--<Label text="Telefono" class="LabelConf"></Label>-->
 					<TextField hintText="Telefono" id="telefono" value="{$.configuracionModel.Telefono}"></TextField>
 				</TableViewRow>
-				<TableViewRow>
+				<TableViewRow class="tableViewPage">
 					<!--<Label text="Notificaciones" class="LabelConf"></Label>-->
 					<Switch id="switchConf" value="{$.configuracionModel.Notificaciones}"></Switch>
 				</TableViewRow>
 			</TableView>
-			<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>
+			<!--<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>-->
 		</View>
 	</Window>
 </Alloy>

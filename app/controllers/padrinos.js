@@ -4,6 +4,13 @@ $.padrinos.addEventListener("close", function(){
     $.destroy();
 });
 
+$.padrinos.addEventListener("open", function(evt) { 
+    
+    var actionBar = $.padrinos.activity.actionBar; 
+    actionBar.onHomeIconItemSelected = Menu;
+    
+});
+
 var opened = false;
 function Menu(){
 	if(!opened){
@@ -50,5 +57,13 @@ function padrinos(){
 
 function adoptar(){
 	Alloy.createController("adopciones").getView().open();
+}
+
+function mail(){
+	var emailDialog = Ti.UI.createEmailDialog();
+	emailDialog.subject = "Padrinos: Dar de baja";
+	emailDialog.toRecipients = ['adopciones@animalessinhogar.org'];
+	emailDialog.messageBody = '';
+	emailDialog.open();
 }
 

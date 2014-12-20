@@ -4,3 +4,7 @@
 		fontFamily:"DroidSans"
 	}
 }
+
+"#contenedor":{
+	backgroundColor:"#F7F7F7"	
+}

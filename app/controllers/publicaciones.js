@@ -18,6 +18,13 @@ var elegido = tipos[0];
 var kilometers = 10;
 ObtenerPublicaciones();
 
+$.publicaciones.addEventListener("open", function(evt) { 
+    
+    var actionBar = $.publicaciones.activity.actionBar; 
+    actionBar.onHomeIconItemSelected = Menu;
+    
+});
+
 function transformarPublicacion(publicacion){
 	var copia = publicacion.toJSON();
 	Ti.API.info(tiposImgs[copia.tipo-1]);
@@ -116,6 +123,6 @@ function adoptar(){
 	Alloy.createController("adopciones").getView().open();
 }
 
-$.publicaciones.addEventListener("open",function(){
-	Alloy.createController("mapa").getView().open();
-});
+function nuevaPublicacion(){
+	alert("nueva!!");
+}

@@ -3,6 +3,11 @@
 	backgroundColor:"#F7F7F7"
 }
 
+"#contenedor":{
+	backgroundColor:"#F7F7F7"	
+}
+
+
 "#sideMenu":{
 	height: Ti.UI.FILL,
 	backgroundColor:"#F7F7F7",

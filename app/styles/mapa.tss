@@ -3,3 +3,38 @@
     height:Ti.UI.FILL,
     width:"100%"
 }
+
+"#contenedor":{
+	backgroundColor:"white"	
+}
+
+"#mapa":{
+	backgroundColor:"#F7F7F7"
+}
+"#sideMenu":{
+	height: Ti.UI.FILL,
+	backgroundColor:"#F7F7F7",
+	width: 200,
+	left:0,
+	top:0,
+}
+
+".tableViewMenu":{
+	color:"#51A58D",
+	left: 15,
+	height: 60,
+}
+
+".tableViewPage":{
+	width:Alloy.Globals.Width,
+	height:60
+}
+
+".line":{
+	height:2,
+	bottom:0,
+	left:0,
+	right:0,
+	borderWidth:1,
+	borderColor:"#c7c7cc",
+}
