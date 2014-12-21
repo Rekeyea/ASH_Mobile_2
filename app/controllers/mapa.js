@@ -3,6 +3,17 @@ var args = arguments[0] || {};
 var centro; 
 var pubsAMostrar; 
 
+$.mapa.addEventListener("close", function(){
+    $.destroy();
+});
+
+$.mapa.addEventListener("open", function(evt) { 
+    
+    var actionBar = $.mapa.activity.actionBar; 
+    actionBar.onHomeIconItemSelected = Menu;
+    
+});
+
 /*
 centro = args["centro"];//es una latitud y longitud
 pubsAMostrar = args["publicaciones"];
@@ -131,4 +142,8 @@ function padrinos(){
 
 function adoptar(){
 	Alloy.createController("adopciones").getView().open();
+}
+
+function nuevaPublicacion(){
+	alert("nueva!!");
 }

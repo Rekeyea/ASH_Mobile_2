@@ -4,6 +4,13 @@ $.padrinos.addEventListener("close", function(){
     $.destroy();
 });
 
+$.padrinos.addEventListener("open", function(evt) { 
+    
+    var actionBar = $.padrinos.activity.actionBar; 
+    actionBar.onHomeIconItemSelected = Menu;
+    
+});
+
 var opened = false;
 function Menu(){
 	if(!opened){
