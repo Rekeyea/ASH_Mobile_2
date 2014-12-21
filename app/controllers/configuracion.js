@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 
 $.configuracion.addEventListener("close", function(){
     $.destroy();
+    alert("close");
 });
 
 
@@ -77,5 +78,62 @@ function CambiarInformacion(){
 	Ti.API.info("******** MODELO ***********");
 	Ti.API.info(JSON.stringify(model));
 	Ti.App.Properties.setObject("DatosUsuario",model);
+	configurarNotificaciones(model);
+	actualizarDatos(model);
 }
 
+
+function configurarNotificaciones(model){
+	var not = true;
+	if($.switchConf.value == 0){
+		not = false;
+	}
+	var params = {
+		IdFacebook: model.UID,
+		notificar: not,
+    };
+	var message = JSON.stringify(params);
+	
+	var obj = {
+		Accion:"ConfigurarNotificaciones",
+		Data:message,
+		Correcto:function(data){
+			Ti.API.info("se configuraron las notificaciones");
+		},
+		Error: function(evt){
+			Ti.UI.createAlertDialog({
+				title:"Configurar Notificaciones",
+				message:"No ha sido posible configurar las notificaciones."
+			}).show();
+		}
+	};
+	Ti.API.info("********************* OBJETO ********************");
+	Ti.API.info(JSON.stringify(obj));
+	Alloy.Globals.Service.Ejecutar(obj);
+}
+
+function actualizarDatos(model){
+	var params = {
+		IdFacebook: model.UID,
+		mail: $.mail.value,
+		nombre: $.nombre.value,
+		telefono: $.telefono.value,
+    };
+	var message = JSON.stringify(params);
+	var obj = {
+		Accion:"ActualizarDatos",
+		Data:message,
+		Correcto:function(data){
+			Ti.API.info("Se actualizaron los datos");
+		},
+		Error: function(evt){
+			Ti.UI.createAlertDialog({
+				title:"Actualizar Datos",
+				message:"No ha sido posible actualizar los datos."
+			}).show();
+		}
+	};
+	Ti.API.info("********************* OBJETO ********************");
+	Ti.API.info(JSON.stringify(obj));
+	Alloy.Globals.Service.Ejecutar(obj);
+}

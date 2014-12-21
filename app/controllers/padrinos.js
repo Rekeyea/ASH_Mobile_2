@@ -52,3 +52,11 @@ function adoptar(){
 	Alloy.createController("adopciones").getView().open();
 }
 
+function mail(){
+	var emailDialog = Ti.UI.createEmailDialog();
+	emailDialog.subject = "Padrinos: Dar de baja";
+	emailDialog.toRecipients = ['adopciones@animalessinhogar.org'];
+	emailDialog.messageBody = '';
+	emailDialog.open();
+}
+

@@ -24,3 +24,11 @@
 	borderWidth:1,
 	borderColor:"#c7c7cc",
 }
+
+"#labASH":{
+	color:"#51A58D",
+}
+
+"#labASMail":{
+	color:"blue",
+}

@@ -51,3 +51,5 @@ function adoptar(){
 	Alloy.createController("adopciones").getView().open();
 }
 
+
+

@@ -25,6 +25,24 @@
 			</TableView>
 		</View>
 		<View id="contenedor" class="container" zIndex="1">
+			<ScrollView>
+				<View layout="vertical">
+					<Label id="labASH" top="20">Usted puede colaborar economicamente las veces que quiera de las siguientes formas:\n\n</Label>
+					
+					<ImageView image="/antel.png" height="60"></ImageView>
+					<Label id="labASH" left="10">\n\nPuede llamar las veces que quiera, por mes, por semana, como mas comodo le quede.\n\n</Label>
+					<Label id="labASH">- 0900 9027, colabora con 20 pesos\n\n- 0900 9028, colabora con 50 pesos\n\n- 0900 9029, colabora con 100 pesos\n\n\n</Label>
+					
+					<ImageView image="/redpagos.png" height="60"></ImageView>
+					<Label id="labASH" left="10">\n\nColectivo numero 21448 a nombre de Animales Sin Hogar.\n\n\n</Label>
+					
+					<ImageView image="/abitab.png" height="60"></ImageView>
+					<Label id="labASH" left="10">\n\nColectivo numero 20438 a nombre de Animales Sin Hogar.\n\n\n</Label>
+					
+					<ImageView image="/santander.png" height="60"></ImageView>
+					<Label id="labASH" left="10">\n\nColaborando directamente en nuestras corrientes a nombre de Animales Sin Hogar:\n\n- Cuenta en PESOS: 3646, Sucursal 19\n\n- Cuente En DOLARES: 510 000 1707, Sucursal 19\n\n\n</Label>
+				</View>
+			</ScrollView>
 		</View>
 	</Window>
 </Alloy>

@@ -1,5 +1,5 @@
 "#contenedor":{
-	backgroundColor:"white"	
+	backgroundColor:"#F7F7F7"	
 }
 
 "#configuracion":{
@@ -19,7 +19,7 @@
 	height: 60,
 }
 
-"TableViewRow":{
+".tableViewPage":{
 	width:Alloy.Globals.Width,
 	height:60
 }
@@ -57,7 +57,7 @@
   	right:20
 }
 
-"#btnSave":{
+/*"#btnSave":{
 	backgroundColor:"#C7C7CC",
 	backgroundSelectedColor:"#8E8E93",
 	color:"white",
@@ -65,3 +65,4 @@
 	width:"50%",
 	bottom:20
 }
+*/

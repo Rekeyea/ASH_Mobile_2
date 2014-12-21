@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 
-$.adopcion.addEventListener("close", function(){
+$.adopciones.addEventListener("close", function(){
     $.destroy();
 });
 
