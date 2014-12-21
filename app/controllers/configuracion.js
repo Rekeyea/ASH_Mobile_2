@@ -5,12 +5,6 @@ $.configuracion.addEventListener("close", function(){
     alert("close");
 });
 
-$.configuracion.addEventListener("open", function(evt) { 
-    
-    var actionBar = $.configuracion.activity.actionBar; 
-    actionBar.onHomeIconItemSelected = Menu;
-    
-});
 
 
 var obj = Ti.App.Properties.getObject("DatosUsuario");

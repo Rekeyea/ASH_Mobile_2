@@ -84,3 +84,9 @@
 	borderColor:"#c7c7cc",
 }
 
+"#actionbar": {
+    icon: "/menu.png",
+    backgroundColor:"#51A58D",
+    
+}
+

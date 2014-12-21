@@ -4,12 +4,6 @@ $.donaciones.addEventListener("close", function(){
     $.destroy();
 });
 
-$.donaciones.addEventListener("open", function(evt) { 
-    
-    var actionBar = $.donaciones.activity.actionBar; 
-    actionBar.onHomeIconItemSelected = Menu;
-    
-});
 
 var opened = false;
 function Menu(){

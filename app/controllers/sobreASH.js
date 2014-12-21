@@ -4,12 +4,6 @@ $.sobreASH.addEventListener("close", function(){
     $.destroy();
 });
 
-$.sobreASH.addEventListener("open", function(evt) { 
-    
-    var actionBar = $.sobreASH.activity.actionBar; 
-    actionBar.onHomeIconItemSelected = Menu;
-    
-});
 
 var opened = false;
 function Menu(){

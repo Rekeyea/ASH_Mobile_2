@@ -1,5 +1,5 @@
 ".container": {
-	backgroundColor:"#3CB954"
+	backgroundColor:"#51A58D"
 }
 
 "#fbButton":{
@@ -13,8 +13,6 @@
 }
 
 "#logo":{
-	top:20,
-	left:20,
-	right:20,
-	image:"/paw.png"
+	height:240,
+	image:"/patitaBlanca.png"
 }

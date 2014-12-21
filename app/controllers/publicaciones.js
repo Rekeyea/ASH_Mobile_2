@@ -17,10 +17,6 @@ var nearest = false;
 var elegido = tipos[0];
 var kilometers = 10;
 
-$.publicaciones.addEventListener("open", function(evt) { 
-    var actionBar = $.publicaciones.activity.actionBar; 
-    actionBar.onHomeIconItemSelected = Menu;
-});
 ObtenerPublicaciones();
 
 

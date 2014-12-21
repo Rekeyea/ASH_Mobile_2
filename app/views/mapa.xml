@@ -1,5 +1,6 @@
 <Alloy>
 	<Window id="mapa">
+		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
 		<Menu id="menu" platform="android" title="Animales Sin Hogar"   >
 			<MenuItem  title="Publicar" onClick="nuevaPublicacion" icon="/nueva.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
@@ -8,19 +9,40 @@
     	</LeftNavButton>
 		<View id="sideMenu">
 		    <TableView>
-				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" ></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" >
+					<ImageView left="10" height="37" image="/mapa.png"></ImageView>
+					<Label text="Mapa" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Lista" onClick="verPublicaciones"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  onClick="verPublicaciones">
+					<ImageView left="10" height="37" image="/lista.png"></ImageView>
+					<Label text="Lista" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar">
+					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
+					<Label text="Configuracion" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar">
+					<ImageView left="10" height="37" image="/chanchita.png"></ImageView>
+					<Label text="Donaciones" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos">
+					<ImageView left="10" height="37" image="/corazon.png"></ImageView>
+					<Label text="Padrinos" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar">
+					<ImageView left="10" height="37" image="/casa.png"></ImageView>
+					<Label text="Adopcion" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH"></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH">
+					<ImageView left="10" height="37" image="/patitaVerde.png"></ImageView>
+					<Label text="Sobre ASH" left="70"></Label>
+				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 			</TableView>
 		</View>

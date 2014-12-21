@@ -11,11 +11,6 @@ $.mapa.addEventListener("close", function(){
     $.destroy();
 });
 
-$.mapa.addEventListener("open", function(evt) { 
-    var actionBar = $.mapa.activity.actionBar; 
-    actionBar.onHomeIconItemSelected = Menu;
-});
-
 $.mapa.addEventListener("pinchangedragstate",function(evt){
 	
 });
