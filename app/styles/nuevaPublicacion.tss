@@ -1,0 +1,119 @@
+"#nuevaPublicacion":{
+	backgroundColor:"#F7F7F7"
+}
+
+"TextField": {
+  	borderColor: "#c7c7cc",
+  	borderWidth: 1,
+  	color: "#51A58D",
+  	height: 35,
+  	left:20,
+  	right:20
+}
+
+"#vertView":{
+	top:0,
+	layout:"vertical",
+	height:Titanium.UI.SIZE
+}
+
+"#lblTitulo":{
+	text:"Titulo",
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20,
+	left:20
+}
+
+"#txtTitulo":{
+	hintText:"Titulo",
+	left:20,
+	right:20,
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20
+}
+
+"#lblTipo":{
+	text:"Tipo de Publicación",
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20,
+	left:20
+}
+
+"#pckTipo":{
+	height:40,
+	left:20,
+	right:20,
+	borderColor: "#c7c7cc",
+  	borderWidth: 1,
+  	color: "#51A58D",
+  	backgroundColor:"#3CB954"
+}
+
+"#lblDesc":{
+	text:"Descripción",
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20,
+	left:20
+}
+
+"#txaDesc":{
+	left:20,
+	right:20,
+	top:20,
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20,
+	height:80,
+	borderColor: "#c7c7cc",
+  	borderWidth: 1,
+  	color: "#51A58D",
+}
+
+"#lblImg":{
+	text:"Imagen",
+	font:{
+		fontSize:16,
+		fontFamily:"DroidSans"
+	},
+	top:20,
+	left:20
+}
+
+"#btnImg":{
+	right:20,
+	width:100,
+	title:"Imagen",
+	backgroundColor:"#DBDDDE",
+	backgroundSelectedColor:"#898C90",
+	color:"black"
+}
+
+"#imgImg":{
+	top: 20,
+	height:100
+}
+
+
+"#btnPub":{
+	bottom:20,
+	left:20,
+	right:20,
+	title:"Publicar",
+	backgroundColor:"#DBDDDE",
+	backgroundSelectedColor:"#898C90",
+	color:"black"
+}

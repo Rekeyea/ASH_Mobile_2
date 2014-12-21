@@ -1,0 +1,18 @@
+<Alloy>
+	<Window id="nuevaPublicacion">
+		<ScrollView>
+			<View id="vertView">
+				<Label id="lblTitulo">Titulo</Label>
+				<TextField id="txtTitulo"></TextField>
+				<Label id="lblTipo">Tipo de Publicación</Label>
+				<Picker id="pckTipo"></Picker>
+				<Label id="lblDesc">Descripción</Label>
+				<TextArea id="txaDesc"></TextArea>
+				<Label id="lblImg">Imagen</Label>
+				<Button id="btnImg" onClick="ElegirDesde"></Button>
+				<ImageView id="imgImg"></ImageView>	
+			</View>
+			<Button id="btnPub" onClick="Publicar"></Button>
+		</ScrollView>
+	</Window>
+</Alloy>

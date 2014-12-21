@@ -16,14 +16,14 @@ var recent = false;
 var nearest = false;
 var elegido = tipos[0];
 var kilometers = 10;
-ObtenerPublicaciones();
 
 $.publicaciones.addEventListener("open", function(evt) { 
-    
     var actionBar = $.publicaciones.activity.actionBar; 
     actionBar.onHomeIconItemSelected = Menu;
-    
 });
+ObtenerPublicaciones();
+
+
 
 function transformarPublicacion(publicacion){
 	var copia = publicacion.toJSON();
@@ -124,5 +124,5 @@ function adoptar(){
 }
 
 function nuevaPublicacion(){
-	alert("nueva!!");
+	Alloy.createController("nuevaPublicacion").getView().open();
 }

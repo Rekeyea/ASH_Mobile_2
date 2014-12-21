@@ -1,97 +1,51 @@
 var args = arguments[0] || {};
 
-var centro; 
-var pubsAMostrar; 
+var imagenTipo = Alloy.Globals.ImagenesTipos;
+var delta = 0.01;
+var centro = {latitud:0,longitud:0}; 
+var yaCargado = false; 
+var enCambio = false;
+var tipoDePublicacion = 0;
 
 $.mapa.addEventListener("close", function(){
     $.destroy();
 });
 
 $.mapa.addEventListener("open", function(evt) { 
-    
     var actionBar = $.mapa.activity.actionBar; 
     actionBar.onHomeIconItemSelected = Menu;
-    
 });
 
-/*
-centro = args["centro"];//es una latitud y longitud
-pubsAMostrar = args["publicaciones"];
-*/
-
-//TODO: sacar esto que es para propocito de testing
-centro = {
-	latitud:-34.9081,
-	longitud:-56.1987
-};
-
-pubsAMostrar = [
-	{
-		tipo:1,
-		ubicacion_X:-34.9080,
-		ubicacion_Y:-56.2000,
-		descripcion:"Una descripción para el cosito",
-		titulo: "Una Publicacion"
-	}
-];
-
-var imagenTipo = Alloy.Globals.ImagenesTipos;
-var delta = 0.01;
-
-CargarMapa(centro,pubsAMostrar);
-
-function BuscarPublicaciones(params){
+$.mapa.addEventListener("pinchangedragstate",function(evt){
 	
-}
+});
 
-function MapPublicacionAnnotation(publicaciones){
-	var listOfAnnotations = _.map(pubsAMostrar,function(publicacion){
-		var imgArr = imagenTipo[publicacion.tipo].split(".");
-		var img = imgArr[0]+"-min."+imgArr[1]; 
-		Ti.API.info(img);
-		var annotation = Alloy.Globals.Map.createAnnotation({
-			image: img,
-			latitude:publicacion.ubicacion_X,
-			longitude:publicacion.ubicacion_Y,
-			subtitle:publicacion.descripcion,
-			title:publicacion.titulo
-		});
-		return annotation;
-	}); 
-	return listOfAnnotations;
-}
+$.mapview.addEventListener("regionchanged",SeMovio);
 
-function CargarMapa(centro,listaPublicaciones){
-	$.mapview.region = {
-		latitude:centro.latitud,
-		latitudeDelta:delta,
-		longitude:centro.longitud,
-		longitudeDelta:delta
+
+function BuscarPublicaciones(tipo){
+	var postData = {
+		IdFacebook : Alloy.Globals.Facebook.uid,
+		tipo:tipo,
+		masCerca:true,
+		recientes:false,
+		ubicacion_actual_x:centro.latitud,
+		ubicacion_actual_y:centro.longitud,
+		kilometrosCerca:1,
+		pagina:1,
+		cantidadElementos:100
 	};
-	$.mapview.addAnnotations(MapPublicacionAnnotation(listaPublicaciones));
-}
-
-function SeMovio(evt){
+	Ti.API.info(JSON.stringify(postData));
+	postData = JSON.stringify(postData);
 	//primero pongo el nuevo centro
-	centro.latitud = evt.latitude;
-	centro.longitud = evt.longitude;
 	Alloy.Globals.Service.Ejecutar({
 		"Accion":"VerPublicaciones",
-		"Data":{
-			IdFacebook : Alloy.Globals.Facebook.uid,
-			tipo:0,
-			masCerca:true,
-			recientes:true,
-			ubicacion_actual_x:centro.latitud,
-			ubicacion_actual_y:centro.longitud,
-			kilometrosCerca:1,
-			pagina:1,
-			cantidadElementos:10
-		},
+		"Data":postData,
 		"Correcto":function(data){
 			//Obtengo las publicaciones
 			Ti.API.info("VINIERON LAS PUBLICACIONES!!");
 			CargarMapa(centro,data);
+			enCambio = false;
 		},
 		"Error":function(err){
 			Ti.UI.createAlertDialog({
@@ -99,26 +53,83 @@ function SeMovio(evt){
 				message:"No se pudieron obtener las ubicaciones de las publicaciones"
 			}).show();
 		}
-	});
+	});	
 }
 
-//$.mapview.addEventListener("regionchanged",SeMovio);
+function MapPublicacionAnnotation(publicaciones){
+	var listOfAnnotations = _.map(publicaciones,function(publicacion){
+		var img = Alloy.Globals.MapaImagenesTipos[publicacion.tipo];
+		var annotationData = {
+			image: img,
+			latitude:publicacion.ubicacion_X,
+			longitude:publicacion.ubicacion_Y,
+			subtitle:publicacion.descripcion,
+			title:publicacion.titulo
+		};
+		Ti.API.info(JSON.stringify(annotationData));
+		var annotation = Alloy.Globals.Map.createAnnotation(annotationData);
+		return annotation;
+	}); 
+	return listOfAnnotations;
+}
 
-/*//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
+function CargarMapa(centro,listaPublicaciones){
+	if(!yaCargado){
+		$.mapview.region = {
+			latitude:centro.latitud,
+			latitudeDelta:delta,
+			longitude:centro.longitud,
+			longitudeDelta:delta
+		};	
+	}
+	$.mapview.addAnnotations(MapPublicacionAnnotation(listaPublicaciones));
+}
+
+function SeMovio(evt){
+	if(!enCambio){
+		enCambio = true;
+		centro.latitud = evt.latitude;
+		centro.longitud = evt.longitude;
+		BuscarPublicaciones(0);
+	}
+}
+
+//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
 if(Ti.Geolocation.locationServicesEnabled){
-	//TODO: Este codigo a continuacion funciona solo para android. Hay que modularizarlo mejor de modo de 
-	//que cuando se pase a iPhone sea facil de hacer
-	var provider = Ti.Geolocation.Android.createLocationProvider({
-		name:Ti.Geolocation.PROVIDER_GPS,
-		minUpdateDistance:0.0,
-		minUpdateDistance:0
+	if(Titanium.Platform.getOsname()=="android"){
+		var providerGps = Ti.Geolocation.Android.createLocationProvider({
+		    name: Ti.Geolocation.PROVIDER_GPS,
+		    minUpdateDistance: 0.0,
+		    minUpdateTime: 0
+		});
+		Ti.Geolocation.Android.addLocationProvider(providerGps);
+		Ti.Geolocation.Android.manualMode = true;
+	}else{
+		Ti.Geolocation.purpose = "Obtener la ubicación actual para mostrar las publicaciones.";
+		Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+		Ti.Geolocation.distanceFilter = 10;
+		Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;	
+	}
+	Titanium.Geolocation.getCurrentPosition(function(evt){
+		try{
+			centro.latitud = evt.coords.latitude;
+			centro.longitud = evt.coords.longitude;	
+		}catch(ex){
+			Ti.API.error(ex);
+		}
+		Ti.API.info("****************** EL CENTRO ES **********************");
+		Ti.API.info(JSON.stringify(centro));
+		Ti.API.info(JSON.stringify(evt));
+		BuscarPublicaciones(0);
+		yaCargado = true;
 	});
+	
 }else{
 	Ti.UI.createAlertDialog({
 		title:"Mapa",
 		message:"Los servicios de localización se encuentran desactivados. Por favor activelos para continuar."
 	}).show();
-}*/
+}
 
 
 var opened = false;
