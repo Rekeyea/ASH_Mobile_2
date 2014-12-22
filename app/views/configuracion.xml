@@ -64,6 +64,10 @@
 					<!--<Label text="Notificaciones" class="LabelConf"></Label>-->
 					<Switch id="switchConf" value="{$.configuracionModel.Notificaciones}"></Switch>
 				</TableViewRow>
+				<TableViewRow class="tableViewPage">
+					<Button id="btnSesion" onClick="CerrarSesion" title="Cerrar Sesion"></Button>
+				</TableViewRow>
+				
 			</TableView>
 			<!--<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>-->
 		</View>

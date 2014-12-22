@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="nuevaPublicacion">
+	<Window id="nuevaPublicacion" onOpen="confImag">
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
 		<Menu id="menu" platform="android" title="Animales Sin Hogar"   ></Menu>
         <LeftNavButton platform="ios">
@@ -47,17 +47,18 @@
 		<View id="contenedor"  zIndex="1">
 			<ScrollView>
 				<View id="vertView">
+					<ImageView id="imgTipo" top="20" height="60"></ImageView>	
 					<Label id="lblTitulo">Titulo</Label>
 					<TextField id="txtTitulo"></TextField>
-					<Label id="lblTipo">Tipo de Publicación</Label>
-					<Picker id="pckTipo"></Picker>
 					<Label id="lblDesc">Descripción</Label>
 					<TextArea id="txaDesc"></TextArea>
 					<Label id="lblImg">Imagen</Label>
 					<Button id="btnImg" onClick="ElegirDesde"></Button>
-					<ImageView id="imgImg"></ImageView>	
-				</View>
-				<Button id="btnPub" onClick="Publicar"></Button>
+					<View id="viewImage" height="100" width="100" borderWidth="1" borderColor="#c7c7cc" bottom="50">
+						<ImageView id="imgImg"></ImageView>	
+					</View>
+					<Button id="btnPub" onClick="Publicar"></Button>
+				</View>			
 			</ScrollView>
 		</View>
 	</Window>

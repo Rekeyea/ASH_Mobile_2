@@ -138,3 +138,7 @@ function actualizarDatos(model){
 	Ti.API.info(JSON.stringify(obj));
 	Alloy.Globals.Service.Ejecutar(obj);
 }
+
+function CerrarSesion(){
+	alert("Cerrar Sesion");
+}

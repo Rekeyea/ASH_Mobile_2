@@ -1,4 +1,79 @@
 <Alloy>
-	<View class="container">
-	</View>
+	<Window id="tiposPublicaciones">
+		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
+		<Menu id="menu" platform="android" title="Animales Sin Hogar"></Menu>
+        <LeftNavButton platform="ios">
+    		<Button onClick="Menu" left="10" top="5" image="menu.png"  height="20" width="23" />
+    	</LeftNavButton>
+		<View id="sideMenu">
+		    <TableView>
+				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" >
+					<ImageView left="10" image="/mapa.png"></ImageView>
+					<Label text="Mapa" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  onClick="verPublicaciones">
+					<ImageView left="10" height="37" image="/lista.png"></ImageView>
+					<Label text="Lista" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar">
+					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
+					<Label text="Configuracion" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar">
+					<ImageView left="10" height="37" image="/chanchita.png"></ImageView>
+					<Label text="Donaciones" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos">
+					<ImageView left="10" height="37" image="/corazon.png"></ImageView>
+					<Label text="Padrinos" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar">
+					<ImageView left="10" height="37" image="/casa.png"></ImageView>
+					<Label text="Adopcion" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH">
+					<ImageView left="10" height="37" image="/patitaVerde.png"></ImageView>
+					<Label text="Sobre ASH" left="70"></Label>
+				</TableViewRow>
+				<TableViewRow ><View class="line" ></View></TableViewRow>
+			</TableView>
+		</View>
+		<View id="contenedor"  zIndex="1">
+			<ScrollView>
+				<TableView>
+					<TableViewRow class="tableViewTipos"  title="Animales en Adopcion" onClick="CategoriaSeleccionada" >
+						<ImageView left="10"  image="/enadopcion.png"></ImageView>
+						<Label text="Animales en Adopcion" left="100"></Label>
+					</TableViewRow>
+					<TableViewRow ><View class="line"></View></TableViewRow>
+					<TableViewRow class="tableViewTipos"  title="Animales Perdidos" onClick="CategoriaSeleccionada" >
+						<ImageView left="10"  image="/perdido.png"></ImageView>
+						<Label text="Animales Perdidos" left="100"></Label>
+					</TableViewRow>
+					<TableViewRow ><View class="line" ></View></TableViewRow>
+					<TableViewRow class="tableViewTipos"  title="Animales Encontrados" onClick="CategoriaSeleccionada">
+						<ImageView left="10"  image="/encontrados.png"></ImageView>
+						<Label text="Animales Encontrados" left="100"></Label>
+					</TableViewRow>
+					<TableViewRow ><View class="line" ></View></TableViewRow>
+					<TableViewRow class="tableViewTipos"  title="Animales Robados" onClick="CategoriaSeleccionada">
+						<ImageView left="10"  image="/robado.png"></ImageView>
+						<Label text="Animales Robados" left="100"></Label>
+					</TableViewRow>
+					<TableViewRow ><View class="line" ></View></TableViewRow>
+					<TableViewRow class="tableViewTipos"  title="Animales Maltratados" onClick="CategoriaSeleccionada">
+						<ImageView left="10" image="/maltratado.png"></ImageView>
+						<Label text="Animales Maltratados" left="100"></Label>
+					</TableViewRow>
+					<TableViewRow ><View class="line" ></View></TableViewRow>
+				</TableView>
+			</ScrollView>
+		</View>
+	</Window>
 </Alloy>

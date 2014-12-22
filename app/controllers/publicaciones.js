@@ -120,5 +120,5 @@ function adoptar(){
 }
 
 function nuevaPublicacion(){
-	Alloy.createController("nuevaPublicacion").getView().open();
+	Alloy.createController("tiposPublicaciones").getView().open();
 }

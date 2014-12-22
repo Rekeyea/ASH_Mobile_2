@@ -176,5 +176,6 @@ function adoptar(){
 }
 
 function nuevaPublicacion(){
-	alert("nueva!!");
+	Alloy.createController("tiposPublicaciones").getView().open();
 }
+

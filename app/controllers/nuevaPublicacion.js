@@ -1,13 +1,14 @@
 var args = arguments[0] || {};
 
+var tipo = args.tipo + 1 || 0;
+
+function confImag(){
+	var imagen = Alloy.Globals.ImagenesTipos[tipo];
+	$.imgTipo.image = imagen;
+} 
+
 var bytes = [];
-var tipoElegido = 1;
-var tipos = _.map(Alloy.Globals.Tipos,function(tipo){
-	return Ti.UI.createPickerRow({
-		title:tipo
-	});
-});
-$.pckTipo.add(tipos);
+
 
 function ElegirDesde(){
 	//le pido al usuario que elija
@@ -36,9 +37,11 @@ function ElegirDesde(){
 }
 
 function Success(evt){
+	$.viewImage.borderWidth = 0;
+	$.viewImage.borderColor = "transparent";
 	bytes = evt.media;
 	$.imgImg.width=100;
-	$.imgImg.height=10
+	$.imgImg.height=100;
 	$.imgImg.image = bytes;
 }
 
@@ -55,7 +58,7 @@ function Publicar(){
 		IdFacebook : Alloy.Globals.Facebook.uid,
 		titulo: $.txtTitulo.value,
 		descripcion:$.txaDesc.value,
-		tipo:tipoElegido,
+		tipo:tipo,
 		ubicacion_X:-34.9081,
 		ubicacion_Y:-56.1989,
 		foto:bytes,
