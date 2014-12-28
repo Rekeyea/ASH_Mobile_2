@@ -61,12 +61,13 @@ function Publicar(){
 		tipo:tipo,
 		ubicacion_X:-34.9081,
 		ubicacion_Y:-56.1989,
-		foto:bytes,
+		foto:Ti.Utils.base64encode(bytes).toString(),
 		fecha:"2014-12-21"
 	};
+	Ti.API.info(JSON.stringify(obj));
 	var postData = {
 		Accion:"RealizarPublicacion",
-		Data:obj,
+		Data:JSON.stringify(obj),
 		Correcto:function(d){
 			$.nuevaPublicacion.close();
 		},
