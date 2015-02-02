@@ -17,7 +17,8 @@ var nearest = false;
 var elegido = tipos[0];
 var kilometers = 10;
 
-ObtenerPublicaciones();
+$.publicaciones.addEventListener("open",ObtenerPublicaciones);
+//ObtenerPublicaciones();
 
 
 
