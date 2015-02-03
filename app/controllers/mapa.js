@@ -64,7 +64,6 @@ function MapPublicacionAnnotation(publicaciones){
 			subtitle:publicacion.descripcion,
 			title:publicacion.titulo
 		};
-		Ti.API.info(JSON.stringify(annotationData));
 		var annotation = Alloy.Globals.Map.createAnnotation(annotationData);
 		return annotation;
 	}); 
@@ -72,14 +71,14 @@ function MapPublicacionAnnotation(publicaciones){
 }
 
 function CargarMapa(centro,listaPublicaciones){
-	if(!yaCargado){
-		$.mapview.region = {
-			latitude:centro.latitud,
-			latitudeDelta:delta,
-			longitude:centro.longitud,
-			longitudeDelta:delta
-		};	
-	}
+	$.mapview.hide();
+	$.mapview.setLocation({
+		latitude:centro.latitud,
+		latitudeDelta:delta,
+		longitude:centro.longitud,
+		longitudeDelta:delta
+	});
+	$.mapview.show();	
 	$.mapview.addAnnotations(MapPublicacionAnnotation(listaPublicaciones));
 }
 
@@ -96,52 +95,55 @@ function SeMovio(evt){
 
 //funcion encargada de mostrar la publicacion elegida en el mapa
 function CargarPublicacion(publicacion){
+	Ti.API.info(JSON.stringify(centro));
 	CargarMapa(centro,[publicacion]);
 } 
 
-
-//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
-if(Ti.Geolocation.locationServicesEnabled){
-	if(Titanium.Platform.getOsname()=="android"){
-		var providerGps = Ti.Geolocation.Android.createLocationProvider({
-		    name: Ti.Geolocation.PROVIDER_GPS,
-		    minUpdateDistance: 0.0,
-		    minUpdateTime: 0
-		});
-		Ti.Geolocation.Android.addLocationProvider(providerGps);
-		Ti.Geolocation.Android.manualMode = true;
-	}else{
-		Ti.Geolocation.purpose = "Obtener la ubicación actual para mostrar las publicaciones.";
-		Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
-		Ti.Geolocation.distanceFilter = 10;
-		Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;	
-	}
-	Titanium.Geolocation.getCurrentPosition(function(evt){
-		try{
-			centro.latitud = evt.coords.latitude;
-			centro.longitud = evt.coords.longitude;	
-		}catch(ex){
-			Ti.API.error(ex);
-		}
-		Ti.API.info("****************** EL CENTRO ES **********************");
-		Ti.API.info(JSON.stringify(centro));
-		Ti.API.info(JSON.stringify(evt));
-		if(unaPublicacion){
-			centro.latitud = miPublicacion.ubicacion_Y;
-			centro.longitud = miPublicacion.ubicacion_X;
-			CargarPublicacion(miPublicacion);
+$.mapa.addEventListener("open",function(){
+	//obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
+	if(Ti.Geolocation.locationServicesEnabled){
+		if(Titanium.Platform.getOsname()=="android"){
+			var providerGps = Ti.Geolocation.Android.createLocationProvider({
+			    name: Ti.Geolocation.PROVIDER_GPS,
+			    minUpdateDistance: 0.0,
+			    minUpdateTime: 0
+			});
+			Ti.Geolocation.Android.addLocationProvider(providerGps);
+			Ti.Geolocation.Android.manualMode = true;
 		}else{
-			BuscarPublicaciones(0);	
+			Ti.Geolocation.purpose = "Obtener la ubicación actual para mostrar las publicaciones.";
+			Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+			Ti.Geolocation.distanceFilter = 10;
+			Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;	
 		}
-		yaCargado = true;
-	});
-	
-}else{
-	Ti.UI.createAlertDialog({
-		title:"Mapa",
-		message:"Los servicios de localización se encuentran desactivados. Por favor activelos para continuar."
-	}).show();
-}
+		Titanium.Geolocation.getCurrentPosition(function(evt){
+			try{
+				centro.latitud = evt.coords.latitude;
+				centro.longitud = evt.coords.longitude;	
+			}catch(ex){
+				Ti.API.error(ex);
+			}
+			Ti.API.info("****************** EL CENTRO ES **********************");
+			Ti.API.info(JSON.stringify(centro));
+			Ti.API.info(JSON.stringify(evt));
+			if(unaPublicacion){
+				centro.latitud = miPublicacion.ubicacion_X;
+				centro.longitud = miPublicacion.ubicacion_Y;
+				Ti.API.info("#### CARGO UNA SOLA PUBLICACION ###");
+				CargarPublicacion(miPublicacion);
+			}else{
+				BuscarPublicaciones(0);	
+			}
+			yaCargado = true;
+		});
+		
+	}else{
+		Ti.UI.createAlertDialog({
+			title:"Mapa",
+			message:"Los servicios de localización se encuentran desactivados. Por favor activelos para continuar."
+		}).show();
+	}
+});
 
 
 //cosas comunes

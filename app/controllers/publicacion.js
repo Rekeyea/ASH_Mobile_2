@@ -1,16 +1,45 @@
 var args = arguments[0] || {};
 var publicacion = args["Publicacion"];
 var service = Alloy.Globals.Service;
+var autor = {};
+
+var service = Alloy.Globals.Service;
+
 
 $.modeloPublicacion.set(publicacion);
+$.imgP.setImage(publicacion.foto);
 
 
 function VerEnMapa(evt){
-	
+	Alloy.createController("mapa",{
+		"unica":true,
+		"Publicacion":publicacion
+	}).getView().open();
 }
 
 function Contactar(evt){
-	
+	var diag = Ti.UI.createOptionDialog({
+		title:"Contactar",
+		options:["Por EMail","Por Teléfono","Cancelar"],
+		cancel:2
+	});
+	diag.addEventListener("click",function(evt){
+		if(evt.index<0){
+			
+		}else{
+			if(evt.index == evt.cancel){
+				
+			}else{
+				var index = evt.index;
+				if(index==0){
+					
+				}else{
+					
+				}
+			}
+		}
+	});
+	diag.show();
 }
 
 function Denunciar(evt){

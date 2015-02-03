@@ -1,5 +1,5 @@
 "#mapview" : {
-    top:50,
+    top:0,
     height:Ti.UI.FILL,
     width:"100%"
 }

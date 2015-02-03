@@ -7,45 +7,40 @@
 	scrollType:"vertical",
 	top:0,
 	borderWidth:5,
-	borderColor:"red"
-}
-
-"#vwImg":{
-	top:0,
-	height:90,
-	borderColor:"green"
-}
-
-"#imgP":{
-	left:20,
-	height:50,
-	width:50,
-	top:20,
-	bottom:20,
-	borderColor:"blue"
+	layout:"vertical"
 }
 
 "#titulo":{
-	left:90,
-	right:20,
-	color:"#F7F7F7",
-	font:{
-		fontSize:24
-	}
-}
-
-"#descripcion":{
-	top:100,
 	left:20,
 	right:20,
-	color:"#F7F7F7",
+	color:"#51A58D",
+	font:{
+		fontSize:24
+	},
+	top:10,
+	height:Titanium.UI.SIZE
+}
+
+
+"#descripcion":{
+	top:10,
+	left:20,
+	right:20,
+	color:"#51A58D",
 	font:{
 		fontSize:16
-	}
+	},
+	height:Titanium.UI.SIZE
+}
+
+"#imgP":{
+	left:0,
+	width:"100%",
+	bottom:20
 }
 
 "#vwBtns":{
-	bottom:20,
+	top:20,
 	height: Titanium.UI.SIZE,
 	layout:"vertical"
 }
