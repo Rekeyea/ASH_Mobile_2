@@ -19,3 +19,4 @@ Alloy.Globals.ImagenesTipos = ["","/enadopcion.png","/perdido.png","/encontrado.
 Alloy.Globals.MapaImagenesTipos = ["","/enadopcion-mapa.png","/perdido-mapa.png","/encontrado-mapa.png","/robado-mapa.png","/maltratado-mapa.png"];
 Alloy.Globals.String = require("alloy/string");
 Alloy.Globals.Width = Titanium.Platform.getDisplayCaps().getPlatformWidth() - 20; 
+Ti.Geolocation.purpose = "Obtener las publicaciones más cercanas al usuario.";

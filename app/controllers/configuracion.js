@@ -2,10 +2,7 @@ var args = arguments[0] || {};
 
 $.configuracion.addEventListener("close", function(){
     $.destroy();
-    alert("close");
 });
-
-
 
 var obj = Ti.App.Properties.getObject("DatosUsuario");
 var uid = Alloy.Globals.Facebook.uid;

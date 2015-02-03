@@ -36,6 +36,10 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                <key>NSLocationAlwaysUsageDescription</key>
+                <string>
+                    Obtener las publicaciones más cercanas al usuario.
+                </string>
             </dict>
         </plist>
     </ios>
@@ -86,7 +90,7 @@
         <target device="blackberry">false</target>
         <target device="mobileweb">true</target>
     </deployment-targets>
-    <sdk-version>3.4.1.GA</sdk-version>
+    <sdk-version>3.5.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

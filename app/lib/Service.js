@@ -6,7 +6,12 @@ exports.Ejecutar = function(obj){
 	Ti.API.info(URL);
 	var cliente = Ti.Network.createHTTPClient({
 			onload:function(){
-				var result = JSON.parse(this.responseText);
+				var result = this.responseText;
+				try{
+					result = JSON.parse(this.responseText);	
+				}catch(ex){
+					
+				}
 				Success(result);
 			},
 			onerror:Error

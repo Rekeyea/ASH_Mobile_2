@@ -18,8 +18,6 @@ var elegido = tipos[0];
 var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
-//ObtenerPublicaciones();
-
 
 
 function transformarPublicacion(publicacion){
@@ -29,49 +27,106 @@ function transformarPublicacion(publicacion){
 		titulo:copia.titulo,
 		descripcion:copia.descripcion,
 		foto:copia.foto,
-		tipoImg:tiposImgs[copia.tipo-1]
+		tipoImg:tiposImgs[copia.tipo-1],
+		id:copia.IdPublicacion
 	};
 	return res;
 }
 
 function ObtenerPublicaciones(){
-	page++;
-	var obj = {
-		IdFacebook : facebookId,
-		tipo:tipos.indexOf(elegido),
-		masCerca:nearest,
-		recientes:recent,
-		ubicacion_actual_x:0,
-		ubicacion_actual_y:0,
-		kilometrosCerca:kilometers,
-		pagina:page,
-		cantidadElementos:quantity
-	};
-	var postData = {
-		Accion:"VerPublicaciones",
-		Data:JSON.stringify(obj),
-		Correcto:function(d){
-			_.each(d,function(elem){
-				//TODO: esto es provisorio
-				elem.foto = Titanium.Utils.base64decode(elem.foto.split(",")[1]);
-				elem.autor = elem.autor.IdFacebook;
-				
-				var model = Alloy.createModel("Publicacion",elem);
-				Alloy.Collections.Publicacion.add(elem);
+	if(Ti.Geolocation.locationServicesEnabled){
+		if(Ti.Platform.getOsname()=="android"){
+			var providerGps = Ti.Geolocation.Android.createLocationProvider({
+			    name: Ti.Geolocation.PROVIDER_GPS,
+			    minUpdateDistance: 0.0,
+			    minUpdateTime: 0
 			});
-		},
-		Error:function(e){
-			Ti.UI.createAlertDialog({
-				title:"Publicaciones",
-				message:"Ocurió un error al obtener las publicaciones!"
-			}).show();
+			Ti.Geolocation.Android.addLocationProvider(providerGps);
+			Ti.Geolocation.Android.manualMode = true;
+		}else{
+			Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+			Ti.Geolocation.distanceFilter = 10;
+    		Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
 		}
-	};
-	service.Ejecutar(postData);
+		Titanium.Geolocation.getCurrentPosition(function(e){
+			if(e.error){
+				Ti.UI.createAlertDialog({
+					title:"Animales sin Hogar",
+					message:"No se pudo obtener la posición actual del usuario"
+				}).show();
+			}else{
+				Obtener(e.coords);
+			}
+		});
+	}else{
+		Ti.UI.createAlertDialog({
+			title:"Animales sin Hogar",
+			message:"No se pudo obtener la posición actual del usuario"
+		}).show();
+		return;
+	}
+	function Obtener(coords){
+		page++;
+		var obj = {
+			IdFacebook : facebookId,
+			tipo:tipos.indexOf(elegido),
+			masCerca:nearest,
+			recientes:recent,
+			ubicacion_actual_x:coords.longitude,
+			ubicacion_actual_y:coords.latitude,
+			kilometrosCerca:kilometers,
+			pagina:page,
+			cantidadElementos:quantity
+		};
+		var postData = {
+			Accion:"VerPublicaciones",
+			Data:JSON.stringify(obj),
+			Correcto:function(d){
+				_.each(d,function(elem){
+					//TODO: esto es provisorio
+					elem.foto = Titanium.Utils.base64decode(elem.foto.split(",")[1]);
+					elem.autor = elem.autor.IdFacebook;
+					
+					var model = Alloy.createModel("Publicacion",elem);
+					//Alloy.Collections.Publicacion.add(elem);
+					$.coleccionPublicaciones.add(elem);
+				});
+				if(d.length<quantity){
+					
+				}else{
+					//var lastElem = $.listaPublicaciones.getSections()[0].getItems().length - 1;
+					var lastElem = $.coleccionPublicaciones.length - 1;
+					$.listaPublicaciones.setMarker({
+						itemIndex : lastElem,
+						sectionIndex:0
+					});
+					Ti.API.info("EL MARCADOR FUE PUESTO EN EL LUGAR: "+lastElem);	
+				}
+			},
+			Error:function(e){
+				Ti.UI.createAlertDialog({
+					title:"Publicaciones",
+					message:"Ocurió un error al obtener las publicaciones!"
+				}).show();
+			}
+		};
+		service.Ejecutar(postData);
+	}
 }
 
 
- var opened = false;
+function VerPublicacion(evt){
+	var id = parseInt(evt.itemId);
+	var pubs = $.coleccionPublicaciones.toJSON();
+	var p = _.where(pubs,{IdPublicacion:id})[0];
+	//TODO: IR AL CONTROLADOR DE LA PUBLICACION
+	Alloy.createController("publicacion",{
+		"Publicacion":p
+	}).getView().open();
+}
+
+
+var opened = false;
 function Menu(){
 	if(!opened){
 		var animation = Titanium.UI.createAnimation({

@@ -1,5 +1,8 @@
 var args = arguments[0] || {};
 
+var unaPublicacion = args["unica"] || false;
+var miPublicacion = args["Publicacion"] || null;
+
 var imagenTipo = Alloy.Globals.ImagenesTipos;
 var delta = 0.01;
 var centro = {latitud:0,longitud:0}; 
@@ -81,13 +84,21 @@ function CargarMapa(centro,listaPublicaciones){
 }
 
 function SeMovio(evt){
-	if(!enCambio){
-		enCambio = true;
-		centro.latitud = evt.latitude;
-		centro.longitud = evt.longitude;
-		BuscarPublicaciones(0);
+	if(!unaPublicacion){
+		if(!enCambio){
+			enCambio = true;
+			centro.latitud = evt.latitude;
+			centro.longitud = evt.longitude;
+			BuscarPublicaciones(0);
+		}	
 	}
 }
+
+//funcion encargada de mostrar la publicacion elegida en el mapa
+function CargarPublicacion(publicacion){
+	CargarMapa(centro,[publicacion]);
+} 
+
 
 //obtengo mi ubicacion actual y centro el mapa en ella. A partir de ahi coloco las annotations
 if(Ti.Geolocation.locationServicesEnabled){
@@ -115,7 +126,13 @@ if(Ti.Geolocation.locationServicesEnabled){
 		Ti.API.info("****************** EL CENTRO ES **********************");
 		Ti.API.info(JSON.stringify(centro));
 		Ti.API.info(JSON.stringify(evt));
-		BuscarPublicaciones(0);
+		if(unaPublicacion){
+			centro.latitud = miPublicacion.ubicacion_Y;
+			centro.longitud = miPublicacion.ubicacion_X;
+			CargarPublicacion(miPublicacion);
+		}else{
+			BuscarPublicaciones(0);	
+		}
 		yaCargado = true;
 	});
 	
@@ -127,6 +144,7 @@ if(Ti.Geolocation.locationServicesEnabled){
 }
 
 
+//cosas comunes
 var opened = false;
 function Menu(){
 	if(!opened){

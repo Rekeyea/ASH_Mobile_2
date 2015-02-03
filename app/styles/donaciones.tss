@@ -31,8 +31,12 @@
 
 "#labASH":{
 	color:"#51A58D",
+	left:20,
+	right:20
 }
 
 "#labASMail":{
 	color:"blue",
+	left:20,
+	right:20
 }
