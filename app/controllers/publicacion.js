@@ -90,6 +90,10 @@ function verPublicaciones(){
 	Alloy.createController("publicaciones").getView().open();
 }
 
+function Atras(){
+	$.index.close();
+}
+
 function sobreASH(){
 	Alloy.createController("sobreASH").getView().open();
 }

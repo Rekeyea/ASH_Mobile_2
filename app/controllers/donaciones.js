@@ -25,6 +25,10 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.donaciones.close();
+}
+
 function sobreASH(){
 	Alloy.createController("sobreASH").getView().open();
 }

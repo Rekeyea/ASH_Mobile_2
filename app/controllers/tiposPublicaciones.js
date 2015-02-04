@@ -20,6 +20,10 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.tiposPublicaciones.close();
+}
+
 function sobreASH(){
 	Alloy.createController("sobreASH").getView().open();
 }

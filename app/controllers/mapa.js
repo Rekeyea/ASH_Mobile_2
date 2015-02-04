@@ -1,3 +1,4 @@
+
 var args = arguments[0] || {};
 
 var unaPublicacion = args["unica"] || false;
@@ -165,6 +166,10 @@ function Menu(){
 		opened=false;
 	}
 	return opened;
+}
+
+function Atras(){
+	$.mapa.close();
 }
 
 function sobreASH(){

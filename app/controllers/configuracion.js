@@ -19,6 +19,10 @@ $.configuracionModel.set({
 	"Notificaciones":notifs
 });
 
+function Atras(){
+	$.configuracion.close();
+}
+
 var opened = false;
 function Menu(){
 	if(!opened){

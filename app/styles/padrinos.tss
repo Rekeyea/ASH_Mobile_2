@@ -2,6 +2,51 @@
 "#padrinos":{
 	backgroundColor:"#F7F7F7"
 }
+
+"#padrinos[platform=ios]":{
+	backgroundColor:"#51A58D"
+}
+
+"#navbar":{
+	top:20,
+	backgroundColor:"#51A58D",
+	height:40
+}
+
+"#contenedor[platform=android]":{
+	top:0
+}
+
+"#contenedor[platform=ios]":{
+	top:60
+}
+
+"#btnMenu":{
+	right:20,
+	height:20,
+	width:20,
+	tintColor:"white",
+	image:"/menu.png",
+	backgroundColor:" transparent"
+}
+
+"#btnAtras":{
+	left:20,
+	height:20,
+	width:20,
+	tintColor:"white",
+	image:"/back.png",
+	backgroundColor:" transparent"
+}
+
+"#tituloMenu":{
+	font:{
+		fontSize:18,
+		fontFamily:"HelveticaNeue-Light"
+	},
+	color:"white"
+}
+
 "#sideMenu":{
 	height: Ti.UI.FILL,
 	backgroundColor:"#F7F7F7",
@@ -35,4 +80,8 @@
 	color:"blue",
 	left:20,
 	right:20
+}
+
+"#sideMenu[platform=ios]":{
+	top:60
 }

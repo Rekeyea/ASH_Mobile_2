@@ -24,6 +24,10 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.padrinos.close();
+}
+
 function sobreASH(){
 	Alloy.createController("sobreASH").getView().open();
 }

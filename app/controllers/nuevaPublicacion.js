@@ -101,6 +101,10 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.nuevaPublicacion.close();
+}
+
 function sobreASH(){
 	Alloy.createController("sobreASH").getView().open();
 }

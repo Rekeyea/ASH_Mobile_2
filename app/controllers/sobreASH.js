@@ -25,6 +25,10 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.sobreASH.close();
+}
+
 function sobreASH(){
 	Menu();
 }
