@@ -8,9 +8,9 @@ var rotaciones = 0;
 fb.addEventListener("login",function(evt){
 	if(evt.success){
 		Ti.API.info("************ DATOS DE FACEBOOK **************");
-		var data = JSON.parse(evt.data);
+		var data = evt.data;
 		var obj = {
-			"UID":evt.data.id,
+			"UID":data.id,
 			"Nombre": Alloy.Globals.String.urlDecode(data.name),
 			"Mail":Alloy.Globals.String.urlDecode(data.email),
 		};

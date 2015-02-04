@@ -7,6 +7,7 @@ exports.Ejecutar = function(obj){
 	var cliente = Ti.Network.createHTTPClient({
 			onload:function(){
 				var result = this.responseText;
+				Ti.API.info(result);
 				try{
 					result = JSON.parse(this.responseText);	
 				}catch(ex){

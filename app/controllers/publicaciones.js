@@ -8,8 +8,6 @@ $.publicaciones.addEventListener("close", function(){
 var tipos = ["Todas","En Adopción","Perdido","Encontrado","Robado","Maltratado"];
 var tiposImgs = Alloy.Globals.ImagenesTipos;
 
-
-
 var page = 0;
 var quantity = 10;
 var recent = false;
@@ -146,6 +144,9 @@ function Menu(){
 	return opened;
 }
 
+function Atras(){
+	$.publicaciones.close();
+}
 
 function verPublicaciones(){
 	Menu();
