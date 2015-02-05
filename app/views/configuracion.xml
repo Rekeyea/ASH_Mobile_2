@@ -69,9 +69,8 @@
 				<TableViewRow class="tableViewPage">
 					<Button id="btnSesion" onClick="CerrarSesion" title="Cerrar Sesion"></Button>
 				</TableViewRow>
-				
 			</TableView>
-			<!--<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>-->
+			<Button id="btnSave" onClick="CambiarInformacion">Guardar Cambios</Button>
 		</View>
 	</Window>
 </Alloy>

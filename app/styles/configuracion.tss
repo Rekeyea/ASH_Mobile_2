@@ -113,3 +113,12 @@
 	backgroundSelectedColor:"#898C90",
 	color:"white"
 }
+
+"#btnSave":{
+	left:20,
+	right:20,
+	backgroundColor:"#51A58D",
+	backgroundSelectedColor:"#898C90",
+	color:"white",
+	bottom:20
+}

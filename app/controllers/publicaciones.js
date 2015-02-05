@@ -16,6 +16,7 @@ var elegido = tipos[0];
 var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
+Ti.API.info("PUBLICACIONES");
 
 
 function transformarPublicacion(publicacion){
