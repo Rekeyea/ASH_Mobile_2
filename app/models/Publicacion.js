@@ -9,7 +9,10 @@ exports.definition = {
 		    "ubicacion_Y": "real",
 		    "foto": "blob",
 		    "fecha": "text",
-		    "autor": "int"
+		    "autorId": "int",
+		    "autorNumero":"text",
+		    "autorMail":"text",
+		    "autorNombre":"text"
 		},
 		adapter: {
 			type: "sql",

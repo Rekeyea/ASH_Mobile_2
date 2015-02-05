@@ -84,8 +84,10 @@ function ObtenerPublicaciones(){
 				_.each(d,function(elem){
 					//TODO: esto es provisorio
 					elem.foto = Titanium.Utils.base64decode(elem.foto.split(",")[1]);
-					elem.autor = elem.autor.IdFacebook;
-					
+					elem.autorId = elem.autor.IdFacebook;
+					elem.autorNumero = elem.autor.telefono;
+					elem.autorMail = elem.autor.mail;
+					elem.autorNombre = elem.autor.nombre;
 					var model = Alloy.createModel("Publicacion",elem);
 					//Alloy.Collections.Publicacion.add(elem);
 					$.coleccionPublicaciones.add(elem);

@@ -10,6 +10,7 @@ var centro = {latitud:0,longitud:0};
 var yaCargado = false; 
 var enCambio = false;
 var tipoDePublicacion = 0;
+var kilometrosCerca = 1;
 
 $.mapa.addEventListener("close", function(){
     $.destroy();
@@ -30,7 +31,7 @@ function BuscarPublicaciones(tipo){
 		recientes:false,
 		ubicacion_actual_x:centro.latitud,
 		ubicacion_actual_y:centro.longitud,
-		kilometrosCerca:1,
+		kilometrosCerca:kilometrosCerca,
 		pagina:1,
 		cantidadElementos:100
 	};
@@ -72,14 +73,8 @@ function MapPublicacionAnnotation(publicaciones){
 }
 
 function CargarMapa(centro,listaPublicaciones){
-	$.mapview.hide();
-	$.mapview.setLocation({
-		latitude:centro.latitud,
-		latitudeDelta:delta,
-		longitude:centro.longitud,
-		longitudeDelta:delta
-	});
-	$.mapview.show();	
+	//$.mapview.hide();
+	//$.mapview.show();	
 	$.mapview.addAnnotations(MapPublicacionAnnotation(listaPublicaciones));
 }
 
@@ -87,11 +82,22 @@ function SeMovio(evt){
 	if(!unaPublicacion){
 		if(!enCambio){
 			enCambio = true;
+			kilometrosCerca = parseInt(DecimalDegreeToKilometer(evt.latitudeDelta));
 			centro.latitud = evt.latitude;
 			centro.longitud = evt.longitude;
+			//tengo que calcular la distancia para pedir las publicaciones
 			BuscarPublicaciones(0);
 		}	
 	}
+}
+
+function DecimalDegreeToKilometer(deltaLat){
+    //formula sacada de: http://en.wikipedia.org/wiki/Haversine_formula
+ 	var RadioDeLaTierra = 6356750;//en metros   
+    var res = deltaLat * (Math.PI/180) * RadioDeLaTierra;
+    res = res/1000;
+    Ti.API.info("LA DISTANCIA ES: "+res+" KM");
+    return res;
 }
 
 //funcion encargada de mostrar la publicacion elegida en el mapa
@@ -135,6 +141,12 @@ $.mapa.addEventListener("open",function(){
 			}else{
 				BuscarPublicaciones(0);	
 			}
+			$.mapview.setLocation({
+				latitude:centro.latitud,
+				latitudeDelta:delta,
+				longitude:centro.longitud,
+				longitudeDelta:delta
+			});
 			yaCargado = true;
 		});
 		
