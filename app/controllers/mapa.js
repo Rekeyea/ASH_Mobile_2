@@ -2,6 +2,7 @@
 var args = arguments[0] || {};
 
 var unaPublicacion = args["unica"] || false;
+Ti.API.info("TENGO UNA SOLA PUBLICACION: "+unaPublicacion);
 var miPublicacion = args["Publicacion"] || null;
 
 var imagenTipo = Alloy.Globals.ImagenesTipos;
