@@ -21,7 +21,7 @@
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 				<TableViewRow class="tableViewMenu"   onClick="configurar">
 					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
-					<Label text="Configuracion" left="70"></Label>
+					<Label text="Configuración" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 				<TableViewRow class="tableViewMenu"  onClick="donar">
@@ -36,7 +36,7 @@
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 				<TableViewRow class="tableViewMenu" onClick="adoptar">
 					<ImageView left="10" height="37" image="/casa.png"></ImageView>
-					<Label text="Adopcion" left="70"></Label>
+					<Label text="Adopción" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 				<TableViewRow class="tableViewMenu"  onClick="sobreASH">
