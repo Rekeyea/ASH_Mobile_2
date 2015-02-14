@@ -11,7 +11,7 @@
         </View>
 		<View id="sideMenu">
 		    <TableView>
-				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" >
+				<TableViewRow class="tableViewMenu" onClick="verMapa" >
 					<ImageView left="10" height="37" image="/mapa.png"></ImageView>
 					<Label text="Mapa" left="70"></Label>
 				</TableViewRow>
@@ -21,27 +21,27 @@
 					<Label text="Lista" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar">
+				<TableViewRow class="tableViewMenu"  onClick="configurar">
 					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
 					<Label text="Configuracion" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar">
+				<TableViewRow class="tableViewMenu" onClick="donar">
 					<ImageView left="10" height="37" image="/chanchita.png"></ImageView>
 					<Label text="Donaciones" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos">
+				<TableViewRow class="tableViewMenu" onClick="padrinos">
 					<ImageView left="10" height="37" image="/corazon.png"></ImageView>
 					<Label text="Padrinos" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar">
+				<TableViewRow class="tableViewMenu" onClick="adoptar">
 					<ImageView left="10" height="37" image="/casa.png"></ImageView>
 					<Label text="Adopcion" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH">
+				<TableViewRow class="tableViewMenu" onClick="sobreASH">
 					<ImageView left="10" height="37" image="/patitaVerde.png"></ImageView>
 					<Label text="Sobre ASH" left="70"></Label>
 				</TableViewRow>
