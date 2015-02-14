@@ -6,7 +6,7 @@
         </Menu>
         <View id="navbar" platform="ios">
         	<Button id="btnAtras" onClick="Atras"></Button>
-        	<Label id="tituloMenu">Configuraci'on'</Label>
+        	<Label id="tituloMenu">Configuración</Label>
         	<Button id="btnMenu" onClick="Menu"></Button>
         </View>
 		<View id="sideMenu">
