@@ -133,9 +133,12 @@ function VerPublicacion(evt){
 	var pubs = $.coleccionPublicaciones.toJSON();
 	var p = _.where(pubs,{IdPublicacion:id})[0];
 	//TODO: IR AL CONTROLADOR DE LA PUBLICACION
-	Alloy.createController("publicacion",{
+	Alloy.Globals.AbrirVentana("publicacion",{
 		"Publicacion":p
-	}).getView().open();
+	});
+	/*Alloy.createController("publicacion",{
+		"Publicacion":p
+	}).getView().open();*/
 }
 
 

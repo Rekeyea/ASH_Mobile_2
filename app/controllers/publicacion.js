@@ -10,10 +10,10 @@ $.imgP.setImage(publicacion.foto);
 
 
 function VerEnMapa(evt){
-	Alloy.createController("mapa",{
+	Alloy.Globals.AbrirVentana("mapa",{
 		"unica":true,
 		"Publicacion":publicacion
-	}).getView().open();
+	});
 }
 
 function Contactar(evt){
