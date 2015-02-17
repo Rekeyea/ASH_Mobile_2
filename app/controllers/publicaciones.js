@@ -16,7 +16,15 @@ var elegido = tipos[0];
 var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
-Ti.API.info("PUBLICACIONES");
+
+if(!Alloy.Globals.Plataforma=="android"){
+	if(Alloy.Globals.EsNuloNavegador()){
+		//creo el navigator
+		var navigator = Ti.UI.iOS.createNavigationWindow();
+		Alloy.Globals.ElNavegador(navigator);
+	}
+}
+Alloy.Globals.AbrirVentana("publicaciones");
 
 
 function transformarPublicacion(publicacion){

@@ -38,7 +38,8 @@ function IniciarSesion(id){
 		Data:id,
 		Correcto:function(data){
 			Ti.API.info("PUEDO PASAR A LA SIGUIENTE PANTALLA");
-			Alloy.createController("publicaciones").getView().open();
+			//Alloy.createController("publicaciones").getView().open();
+			Alloy.createController("publicaciones");
 		},
 		Error: function(evt){
 			Ti.UI.createAlertDialog({
