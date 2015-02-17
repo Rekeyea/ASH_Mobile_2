@@ -5,6 +5,15 @@ var seguirRotando = false;
 var animation;
 var rotaciones = 0;
 
+if(Alloy.Globals.Plataforma!="android"){
+	if(Alloy.Globals.EsNuloNavegador()){
+		//creo el navigator
+		Alloy.Globals.ElNavegador($.navigator);
+	}
+}
+
+$.navigator.open();
+
 fb.addEventListener("login",function(evt){
 	if(evt.success){
 		Ti.API.info("************ DATOS DE FACEBOOK **************");
@@ -24,7 +33,8 @@ fb.addEventListener("login",function(evt){
 		}).show();
 	}
 });
-$.index.open();
+
+
 
 if(fb.loggedIn){
 	//TODO: El problema con esto es que tambien hay que hacerlo visible 
@@ -46,7 +56,8 @@ function IniciarSesion(id){
 		Correcto:function(data){
 			Ti.API.info("PUEDO PASAR A LA SIGUIENTE PANTALLA");
 			//Alloy.createController("publicaciones").getView().open();
-			Alloy.createController("publicaciones");
+			//Alloy.createController("publicaciones");
+			Alloy.Globals.AbrirVentana("publicaciones");
 		},
 		Error: function(evt){
 			Ti.UI.createAlertDialog({

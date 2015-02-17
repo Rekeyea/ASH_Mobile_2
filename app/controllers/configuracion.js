@@ -19,10 +19,6 @@ $.configuracionModel.set({
 	"Notificaciones":notifs
 });
 
-function Atras(){
-	$.configuracion.close();
-}
-
 function Grabar(){
 	var servicio = Alloy.Globals.Service;
 	var objUsuario = {
@@ -44,8 +40,8 @@ function Grabar(){
 				guardado = true;
 			}else{
 				Ti.UI.createAlertDialog({
-					title:"Actualizar Datos",
-					message:"Los datos fueron actualizados correctamente."
+					title:"Datos",
+					message:"Se guardaron los datos correctamente"
 				}).show();
 			}
 		},
@@ -56,74 +52,6 @@ function Grabar(){
 			}).show();
 		}
 	});
-	servicio.Ejecutar({
-		"Accion":"ConfigurarNotificaciones",
-		"Data":JSON.stringify(objNoti),
-		"Correcto":function(d){
-			if(!guardado){
-				guardado = true;
-			}else{
-				Ti.UI.createAlertDialog({
-					title:"Actualizar Datos",
-					message:"Los datos fueron actualizados correctamente."
-				}).show();
-			}
-		},
-		"Error":function(e){
-			Ti.UI.createAlertDialog({
-				title:"Configurar Notificaciones" ,
-				message:"Ocurrio un error al configurar las notificaciones."
-			}).show();
-		}
-	});
-}
-
-var opened = false;
-function Menu(){
-	if(!opened){
-		var animation = Titanium.UI.createAnimation({
-			left:200,
-			duration: 200
-		});
-		$.contenedor.animate(animation);
-		opened=true;
-	}else{
-		var animation = Titanium.UI.createAnimation({
-			left:0,
-			duration: 200
-		});
-		$.contenedor.animate(animation);
-		opened=false;
-	}
-	return opened;
-}
-
-function sobreASH(){
-	Alloy.createController("sobreASH").getView().open();
-}
-
-function verPublicaciones(){
-	Alloy.createController("publicaciones").getView().open();
-}
-
-function verMapa(){
-	Alloy.createController("mapa").getView().open();
-}
-
-function configurar(){
-	Menu();
-}
-
-function donar(){
-	Alloy.createController("donaciones").getView().open();
-}
-
-function padrinos(){
-	Alloy.createController("padrinos").getView().open();
-}
-
-function adoptar(){
-	Alloy.createController("adopciones").getView().open();
 }
 
 function CambiarInformacion(){

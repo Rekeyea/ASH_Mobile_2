@@ -16,3 +16,8 @@
 	height:240,
 	image:"/patitaBlanca.png"
 }
+
+"#navigator":{
+	tintColor:"white",
+	color:"white"
+}

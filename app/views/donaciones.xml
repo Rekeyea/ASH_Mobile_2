@@ -3,11 +3,6 @@
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
 		<Menu id="menu" platform="android" title="Animales Sin Hogar" >
         </Menu>
-        <View id="navbar" platform="ios">
-        	<Button id="btnAtras" onClick="Atras"></Button>
-        	<Label id="tituloMenu">Donaciones</Label>
-        	<Button id="btnMenu" onClick="Menu"></Button>
-        </View>
 		<View id="sideMenu">
 		    <TableView>
 				<TableViewRow class="tableViewMenu"  onClick="verMapa" >

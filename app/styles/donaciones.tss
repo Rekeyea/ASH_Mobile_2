@@ -2,12 +2,8 @@
 	backgroundColor:"#F7F7F7"	
 }
 
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 "#sideMenu[platform=ios]":{
@@ -19,7 +15,10 @@
 }
 
 "#donaciones[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Donaciones",
+	color:"white",
+	tintColor:"white"
 }
 
 "#btnMenu":{

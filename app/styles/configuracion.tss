@@ -2,16 +2,8 @@
 	backgroundColor:"#F7F7F7"	
 }
 
-"#sideMenu[platform=ios]":{
-	top:60
-}
-
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 "#btnMenu":{
@@ -40,12 +32,11 @@
 	color:"white"
 }
 
-"#configuracion":{
-	backgroundColor:"#F7F7F7"
-}
 
-"#configuracion[platform=ios]":{
-	backgroundColor:"#51A58D"
+"#configuracion":{
+	backgroundColor:"#51A58D",
+	title:"Configuracion",
+	color:"white"
 }
 
 "#navbar":{

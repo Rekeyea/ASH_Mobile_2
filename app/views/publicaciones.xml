@@ -1,16 +1,13 @@
 <Alloy>
 	<Collection src="Publicacion" id="coleccionPublicaciones" instance="true"></Collection>
 	<Window id="publicaciones">
+        <RightNavButton>
+            <Button id="btnNP" onClick="nuevaPublicacion" image="/nueva.png"/>
+        </RightNavButton>
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" platform="android" />
 		<Menu id="menu" platform="android" title="Animales Sin Hogar"   >
 			<MenuItem  title="Publicar" onClick="nuevaPublicacion" icon="/nueva.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
-        <LeftNavButton platform=ios>
-            <Button onClick="Menu" image="/menu.png"/>
-        </LeftNavButton>
-        <RightNavButton platform=ios>
-            <Button onClick="nuevaPublicacion" icon="/nueva.png"/>
-        </RightNavButton>
 		<View id="sideMenu">
 		    <TableView>
 				<TableViewRow class="tableViewMenu"  onClick="verMapa" >
@@ -50,7 +47,7 @@
 				<TableViewRow ><View class="line" ></View></TableViewRow>
 			</TableView>
 		</View>
-		<View id="contenedor"  zIndex="1">
+		<View id="contenedor" zIndex="1">
 			<ListView id="listaPublicaciones" defaultItemTemplate="template" onMarker="ObtenerPublicaciones" onItemclick="VerPublicacion">
 				<Templates>
 					<ItemTemplate name="template">
@@ -69,6 +66,5 @@
 				</ListSection>
 			</ListView>
 		</View>
-
 	</Window>
 </Alloy>

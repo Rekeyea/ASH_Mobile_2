@@ -4,7 +4,8 @@
 }
 
 "#sobreASH[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Sobre ASH"
 }
 
 "#navbar":{
@@ -18,12 +19,8 @@
 	width:Titanium.UI.FILL
 }
 
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 "#btnMenu":{

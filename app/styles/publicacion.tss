@@ -3,7 +3,8 @@
 }
 
 "#index[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Publicacion"
 }
 
 "#navbar":{
@@ -14,12 +15,8 @@
 	right:0
 }
 
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 "#btnMenu":{

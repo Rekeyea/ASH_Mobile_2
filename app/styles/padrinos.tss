@@ -4,7 +4,8 @@
 }
 
 "#padrinos[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Padrinos"
 }
 
 "#navbar":{
@@ -13,13 +14,10 @@
 	height:40
 }
 
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
 }
 
-"#contenedor[platform=ios]":{
-	top:60
-}
 
 "#btnMenu":{
 	right:20,

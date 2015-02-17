@@ -5,15 +5,8 @@
 }
 
 "#contenedor":{
-	backgroundColor:"white"	
-}
-
-"#contenedor[platform=android]":{
+	backgroundColor:"white",
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 "#sideMenu[platform=ios]":{
@@ -51,7 +44,8 @@
 }
 
 "#mapa[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Mapa"
 }
 
 "#navbar":{

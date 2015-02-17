@@ -17,18 +17,11 @@ var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
 
-if(Alloy.Globals.Plataforma!="android"){
-	if(Alloy.Globals.EsNuloNavegador()){
-		//creo el navigator
-		var navigator = Ti.UI.iOS.createNavigationWindow({
-			window:$.publicaciones,
-			tintColor:"white"
-		});
-		navigator.open();
-		Alloy.Globals.ElNavegador(navigator);
-	}
-}
-Alloy.Globals.AbrirVentana("publicaciones");
+var btnMenu = Ti.UI.createButton({
+	image:"/menu.png"
+});
+btnMenu.addEventListener("click",Menu);
+$.publicaciones.leftNavButton = btnMenu;
 
 
 function transformarPublicacion(publicacion){
@@ -141,7 +134,6 @@ function VerPublicacion(evt){
 	}).getView().open();*/
 }
 
-
 var opened = false;
 function Menu(){
 	if(!opened){
@@ -171,29 +163,32 @@ function verPublicaciones(){
 }
 
 function sobreASH(){
-	Alloy.createController("sobreASH").getView().open();
+	//Alloy.createController("sobreASH").getView().open();
+	Alloy.Globals.AbrirVentana("sobreASH");
 }
 
 function verMapa(){
-	Alloy.createController("mapa").getView().open();
+	Alloy.Globals.AbrirVentana("mapa");
 }
 
 function configurar(){
-	Alloy.createController("configuracion").getView().open();
+	Alloy.Globals.AbrirVentana("configuracion");
 }
 
 function donar(){
-	Alloy.createController("donaciones").getView().open();
+	Alloy.Globals.AbrirVentana("donaciones");
 }
 
 function padrinos(){
-	Alloy.createController("padrinos").getView().open();
+	Alloy.Globals.AbrirVentana("padrinos");
 }
 
 function adoptar(){
-	Alloy.createController("adopciones").getView().open();
+	Alloy.Globals.AbrirVentana("adopciones");
 }
 
 function nuevaPublicacion(){
-	Alloy.createController("tiposPublicaciones").getView().open();
+	//Alloy.createController("tiposPublicaciones").getView().open();
+	Alloy.Globals.AbrirVentana("tiposPublicaciones");
 }
+

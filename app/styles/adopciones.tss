@@ -4,7 +4,8 @@
 }
 
 "#adopciones[platform=ios]":{
-	backgroundColor:"#51A58D"
+	backgroundColor:"#51A58D",
+	title:"Adopciones"
 }
 
 "#navbar":{

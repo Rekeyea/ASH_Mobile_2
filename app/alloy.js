@@ -42,7 +42,6 @@ function Open(nombreController,parametros){
 		navStack.push(elem);
 		navigator.openWindow(win);
 	}
-	
 	var cont = Alloy.createController(nombreController,parametros);
 	var win = cont.getView();
 	if(!_.isNull(navigator)){
