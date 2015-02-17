@@ -10,7 +10,7 @@
         </View>
 		<View id="sideMenu">
 		    <TableView>
-				<TableViewRow class="tableViewMenu"  title="Mapa" onClick="verMapa" >
+				<TableViewRow class="tableViewMenu"  onClick="verMapa" >
 					<ImageView left="10" height="37" image="/mapa.png"></ImageView>
 					<Label text="Mapa" left="70"></Label>
 				</TableViewRow>
@@ -20,27 +20,27 @@
 					<Label text="Lista" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Configuracion" onClick="configurar">
+				<TableViewRow class="tableViewMenu"  onClick="configurar">
 					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
-					<Label text="Configuracion" left="70"></Label>
+					<Label text="Configuración" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Donaciones" onClick="donar">
+				<TableViewRow class="tableViewMenu"  onClick="donar">
 					<ImageView left="10" height="37" image="/chanchita.png"></ImageView>
 					<Label text="Donaciones" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Padrinos" onClick="padrinos">
+				<TableViewRow class="tableViewMenu"  onClick="padrinos">
 					<ImageView left="10" height="37" image="/corazon.png"></ImageView>
 					<Label text="Padrinos" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Adopcion" onClick="adoptar">
+				<TableViewRow class="tableViewMenu"  onClick="adoptar">
 					<ImageView left="10" height="37" image="/casa.png"></ImageView>
-					<Label text="Adopcion" left="70"></Label>
+					<Label text="Adopción" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  title="Sobre ASH" onClick="sobreASH">
+				<TableViewRow class="tableViewMenu"  onClick="sobreASH">
 					<ImageView left="10" height="37" image="/patitaVerde.png"></ImageView>
 					<Label text="Sobre ASH" left="70"></Label>
 				</TableViewRow>
@@ -50,15 +50,18 @@
 		<View id="contenedor" zIndex="1">
 			<ScrollView>
 				<View layout="vertical">
-				<Label id="labASH" top="20">\n Animales sin Hogar se creó el 16 de noviembre de 2003. Es una Asociación Civil sin Fines de Lucro con Personería Jurídica 9985, integrada exclusivamente por voluntarios. 
+				<ImageView image="/SobreASH1.png" height="300" top="20" ></ImageView>
+				<Label id="labASH" top="10">\n Animales sin Hogar se creó el 16 de noviembre de 2003. Es una Asociación Civil sin Fines de Lucro con Personería Jurídica 9985, integrada exclusivamente por voluntarios. 
 La organización fue creada con el fin de brindar una base de datos a nivel nacional de animales perdidos, encontrados y en adopción, y a su vez darle apoyo a aquellas protectoras que albergaban animales. \n
 
-Nos fuimos enfrentando a la triste realidad de que las protectoras no podian asumir mas animales de los que ya tenian y continuamente llegaban a nuestro sitio web pedidos de ayuda para animales que estaban en pesimas condiciones. Eso hizo que nosotros tambien comenzaramos a recoger animales y ahora pasamos a estar en la misma situación que el resto de las protectoras.\n 
-
-Hoy Animales sin Hogar es responsable de un promedio de 372 perros, 180 gatos y 175 caballos, en total contando con chanchos, vacas, etc. hay 750 animales en la chacra hoy en dia. 
+Nos fuimos enfrentando a la triste realidad de que las protectoras no podian asumir mas animales de los que ya tenian y continuamente llegaban a nuestro sitio web pedidos de ayuda para animales que estaban en pesimas condiciones. Eso hizo que nosotros tambien comenzaramos a recoger animales y ahora pasamos a estar en la misma situación que el resto de las protectoras.\n
+				</Label> 
+				<ImageView image="/SobreASH2.png" height="300"></ImageView>
+				<Label id="labASH" left="10" top="10">Animales sin Hogar es responsable de un promedio de 372 perros, 180 gatos y 175 caballos, en total contando con chanchos, vacas, etc. hay 750 animales en la chacra hoy en dia. 
 Estos se encuentran en perfectas condiciones de salud, viven sueltos, y cada uno cuenta con un lugar para dormir. Reciben alimento balanceado y se higieniza el lugar diariamente. También cuentan con asistencia veterinaria, vacunas, medicamentos, son castrados machos y hembras. etc. \n
 En una chacra privada mantenemos unos 175 caballos de carro, requisados por maltrato. Ellos comen a diario ración y fardos, cuentan con asistencia veterinaria, los machos son castrados, etc. Viven de forma natural pero bajo el cuidado de personas que velan por su bienestar. Nunca mas serán utilizados para trabajar y mucho menos recibirán malos tratos.\n 
 				</Label>
+				<ImageView image="/SobreASH3.png" height="300" top="10" bottom="20" ></ImageView>
 				</View>
 			</ScrollView>
 		</View>

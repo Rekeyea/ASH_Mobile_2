@@ -5,7 +5,6 @@ var autor = {};
 
 var service = Alloy.Globals.Service;
 
-
 $.modeloPublicacion.set(publicacion);
 $.imgP.setImage(publicacion.foto);
 
@@ -32,9 +31,13 @@ function Contactar(evt){
 			}else{
 				var index = evt.index;
 				if(index==0){
-					
+					var dialog = Titanium.UI.createEmailDialog({
+						subject:$.modeloPublicacion.get("titulo"),
+						toRecipients:[$.modeloPublicacion.get("autorMail")]
+					});
+					dialog.open();
 				}else{
-					
+					Ti.Platform.openURL("tel:"+$.modeloPublicacion.get("autorNumero"));
 				}
 			}
 		}

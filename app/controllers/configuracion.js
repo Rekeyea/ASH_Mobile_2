@@ -9,7 +9,7 @@ var uid = Alloy.Globals.Facebook.uid;
 var nombre = obj.Nombre || "";
 var mail = obj.Mail || "";
 var tel = obj.Telefono || "";
-var notifs = obj.Notificaciones || 0;
+var notifs = obj.Notificaciones || false;
 
 $.configuracionModel.set({
 	"UID":uid,
@@ -21,6 +21,61 @@ $.configuracionModel.set({
 
 function Atras(){
 	$.configuracion.close();
+}
+
+function Grabar(){
+	var servicio = Alloy.Globals.Service;
+	var objUsuario = {
+		"IdFacebook":$.configuracionModel.get("UID"),
+		"nombre":$.configuracionModel.get("Nombre"),
+		"mail":$.configuracionModel.get("Mail"),
+		"telefono":$.configuracionModel.get("Telefono"),
+	};
+	var objNoti = {
+		"IdFacebook":$.configuracionModel.get("UID"),
+		"notificar":$.configuracionModel.get("Notificaciones") == 1 ? true : false
+	};
+	var guardado = false;
+	servicio.Ejecutar({
+		"Accion":"ActualizarDatos",
+		"Data":JSON.stringify(objUsuario),
+		"Correcto":function(d){
+			if(!guardado){
+				guardado = true;
+			}else{
+				Ti.UI.createAlertDialog({
+					title:"Actualizar Datos",
+					message:"Los datos fueron actualizados correctamente."
+				}).show();
+			}
+		},
+		"Error":function(e){
+			Ti.UI.createAlertDialog({
+				title:"Actualizar Datos",
+				message:"Ocurrio un error al actualizar los datos."
+			}).show();
+		}
+	});
+	servicio.Ejecutar({
+		"Accion":"ConfigurarNotificaciones",
+		"Data":JSON.stringify(objNoti),
+		"Correcto":function(d){
+			if(!guardado){
+				guardado = true;
+			}else{
+				Ti.UI.createAlertDialog({
+					title:"Actualizar Datos",
+					message:"Los datos fueron actualizados correctamente."
+				}).show();
+			}
+		},
+		"Error":function(e){
+			Ti.UI.createAlertDialog({
+				title:"Configurar Notificaciones" ,
+				message:"Ocurrio un error al configurar las notificaciones."
+			}).show();
+		}
+	});
 }
 
 var opened = false;
@@ -82,6 +137,7 @@ function CambiarInformacion(){
 	Ti.App.Properties.setObject("DatosUsuario",model);
 	configurarNotificaciones(model);
 	actualizarDatos(model);
+	Grabar();
 }
 
 
@@ -141,5 +197,9 @@ function actualizarDatos(model){
 }
 
 function CerrarSesion(){
-	alert("Cerrar Sesion");
+	Alloy.Globals.Facebook.logout();
+	Ti.UI.createAlertDialog({
+		title:"Animales sin Hogar",
+		message:"Para cerrar la sesión por completo debe cerrar la aplicación!"
+	}).show();
 }
