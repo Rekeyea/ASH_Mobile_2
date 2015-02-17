@@ -27,8 +27,15 @@ fb.addEventListener("login",function(evt){
 $.index.open();
 
 if(fb.loggedIn){
+	//TODO: El problema con esto es que tambien hay que hacerlo visible 
+	//cuando cierro sesion
+	$.fbButton.setVisible(false);
 	IniciarSesion(fb.uid);
 }
+
+Ti.App.addEventListener("CierroSesion",function(){
+	$.fbButton.setVisible(false);
+});
 
 function IniciarSesion(id){
 	seguirRotando = true;
