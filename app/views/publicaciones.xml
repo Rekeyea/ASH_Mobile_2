@@ -5,11 +5,12 @@
 		<Menu id="menu" platform="android" title="Animales Sin Hogar"   >
 			<MenuItem  title="Publicar" onClick="nuevaPublicacion" icon="/nueva.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
-        <View id="navbar" platform="ios">
-        	<Button id="btnAtras" onClick="Atras"></Button>
-        	<Label id="tituloMenu">Publicaciones</Label>
-        	<Button id="btnMenu" onClick="Menu"></Button>
-        </View>
+        <LeftNavButton platform=ios>
+            <Button onClick="Menu" image="/menu.png"/>
+        </LeftNavButton>
+        <RightNavButton platform=ios>
+            <Button onClick="nuevaPublicacion" icon="/nueva.png"/>
+        </RightNavButton>
 		<View id="sideMenu">
 		    <TableView>
 				<TableViewRow class="tableViewMenu"  onClick="verMapa" >

@@ -12,7 +12,7 @@
 Alloy.Globals.Facebook = require("facebook");
 Alloy.Globals.Map = require("ti.map");
 Alloy.Globals.Service = require("Service");
-Alloy.Globals.URL = "http://192.168.1.106/ASHServices/Service1.svc/";
+Alloy.Globals.URL = "http://192.168.1.5/ASHServices/Service1.svc/";
 Alloy.Globals.Publicaciones = Alloy.createCollection("Publicacion");
 Alloy.Globals.Tipos = ["Adopción","Perdido","Encontrado","Robado","Maltradado"];
 Alloy.Globals.ImagenesTipos = ["","/enadopcion.png","/perdido.png","/encontrado.png","/robado.png","/maltratado.png"];
@@ -34,25 +34,6 @@ function SetNavigator(nav){
 	navigator = nav;
 }
 function Open(nombreController,parametros){
-	
-	function CerrarVentana(item){
-		var win = item.Ventana;
-		var nom = item.Nombre;
-		if(nom == nombreController){
-			//antes de cerrar la ventana devuelvo todo a su lugar
-			while(!_.isEmpty(aux)){
-				navStack.push(aux.pop());	
-			}
-			AbrirVentana();
-		}else{
-			win.addEventListener("close",function(){
-				var elem = aux.pop();
-				CerrarVentana(elem.Ventana);
-			});	
-		}
-		win.close();
-	}
-	
 	function AbrirVentana(){
 		var elem = {
 			Nombre:nombreController,
@@ -65,20 +46,7 @@ function Open(nombreController,parametros){
 	var cont = Alloy.createController(nombreController,parametros);
 	var win = cont.getView();
 	if(!_.isNull(navigator)){
-		//si ya esta en el stack, rompo todas las pantallas anteriores
-		if(_.contains(_.pluck(navStack,"Nombre"),nombreController)){
-			//paso todo a un stack auxiliar
-			var aux = [];
-			while(!_.isEmpty(navStack)){
-				aux.push(navStack.pop());	
-			}
-			//ahora saco de aux todo hasta que llegue a lo que busco y el resto lo devuelvo a navStack
-			var elem = aux.pop();
-			//los voy cerrando
-			CerrarVentana(elem);
-		}else{
-			AbrirVentana();	
-		}
+		AbrirVentana();
 	}else{
 		win.open();
 	}

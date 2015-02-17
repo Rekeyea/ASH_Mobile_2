@@ -38,12 +38,8 @@
 	color:"white"
 }
 
-"#contenedor[platform=android]":{
+"#contenedor":{
 	top:0
-}
-
-"#contenedor[platform=ios]":{
-	top:60
 }
 
 ".imagen":{

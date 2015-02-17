@@ -13,3 +13,7 @@
     icon: "/menu.png",
     backgroundColor:"#51A58D",   
 }
+
+"Window":{
+	barColor:"#51A58D"
+}

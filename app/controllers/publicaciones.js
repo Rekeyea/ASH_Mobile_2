@@ -17,10 +17,14 @@ var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
 
-if(!Alloy.Globals.Plataforma=="android"){
+if(Alloy.Globals.Plataforma!="android"){
 	if(Alloy.Globals.EsNuloNavegador()){
 		//creo el navigator
-		var navigator = Ti.UI.iOS.createNavigationWindow();
+		var navigator = Ti.UI.iOS.createNavigationWindow({
+			window:$.publicaciones,
+			tintColor:"white"
+		});
+		navigator.open();
 		Alloy.Globals.ElNavegador(navigator);
 	}
 }
