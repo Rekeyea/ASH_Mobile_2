@@ -2,11 +2,6 @@
 	<Model id="modeloPublicacion" src="Publicacion" instance="true"></Model>
 	<Window id="index">
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" platform="android" />
-        <View id="navbar" platform="ios">
-        	<Button id="btnAtras" onClick="Atras"></Button>
-        	<Label id="tituloMenu">Publicacion</Label>
-        	<Button id="btnMenu" onClick="Menu"></Button>
-        </View>
 		<View id="sideMenu">
 		    <TableView>
 				<TableViewRow class="tableViewMenu"  onClick="verMapa" >
