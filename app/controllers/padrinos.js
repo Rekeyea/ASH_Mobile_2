@@ -24,36 +24,8 @@ function Menu(){
 	return opened;
 }
 
-function Atras(){
-	$.padrinos.close();
-}
-
-function sobreASH(){
-	Alloy.createController("sobreASH").getView().open();
-}
-
-function verPublicaciones(){
-	Alloy.createController("publicaciones").getView().open();
-}
-
-function verMapa(){
-	Alloy.createController("mapa").getView().open();
-}
-
-function configurar(){
-	Alloy.createController("configuracion").getView().open();
-}
-
-function donar(){
-	Alloy.createController("donaciones").getView().open();
-}
-
-function padrinos(){
-	Menu();
-}
-
 function adoptar(){
-	Alloy.createController("adopciones").getView().open();
+	Alloy.Globals.AbrirVentana("adopciones");
 }
 
 function mail(){
