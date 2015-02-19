@@ -12,7 +12,7 @@
 Alloy.Globals.Facebook = require("facebook");
 Alloy.Globals.Map = require("ti.map");
 Alloy.Globals.Service = require("Service");
-Alloy.Globals.URL = "http://192.168.1.5/ASHServices/Service1.svc/";
+Alloy.Globals.URL = "http://192.168.1.42/ASHServices/Service1.svc/";
 Alloy.Globals.Publicaciones = Alloy.createCollection("Publicacion");
 Alloy.Globals.Tipos = ["Adopción","Perdido","Encontrado","Robado","Maltradado"];
 Alloy.Globals.ImagenesTipos = ["","/enadopcion.png","/perdido.png","/encontrado.png","/robado.png","/maltratado.png"];
@@ -34,19 +34,10 @@ function SetNavigator(nav){
 	navigator = nav;
 }
 function Open(nombreController,parametros){
-	function AbrirVentana(){
-		var elem = {
-			Nombre:nombreController,
-			Ventana:win
-		};
-		navStack.push(elem);
-		navigator.openWindow(win);
-	}
-	var cont = Alloy.createController(nombreController,parametros);
-	var win = cont.getView();
-	if(!_.isNull(navigator)){
-		AbrirVentana();
-	}else{
+	var win = Alloy.createController(nombreController,parametros).getView();
+	if(Alloy.Globals.Plataforma=="android"){
 		win.open();
+	}else{
+		navigator.openWindow();
 	}
 }

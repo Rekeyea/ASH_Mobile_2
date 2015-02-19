@@ -15,5 +15,11 @@
 }
 
 "Window":{
-	barColor:"#51A58D"
+	barColor:"#51A58D",
+	navTintColor:"white",
+	orientationModes: [Titanium.UI.PORTRAIT],
+	navBarHidden:false,
+	tintColor:"white",
+	translucent:false,
+	backButtonTitle:""
 }
