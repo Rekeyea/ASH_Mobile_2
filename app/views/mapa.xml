@@ -2,7 +2,7 @@
 	<Window id="mapa">
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
 		<View id="contenedor"  zIndex="1">
-			<Module id="mapview" module="ti.map" method="createView">
+			<Module id="mapview" module="ti.map" method="createView" onClick="IrAPublicacion">
 			</Module>
 		</View>
 	</Window>

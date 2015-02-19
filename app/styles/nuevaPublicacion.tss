@@ -138,7 +138,10 @@
 	backgroundColor:"transparent",
 	backgroundSelectedColor:"#898C90",
 	color:"black",
-	image:"/camara.png"
+	image:"/camara.png",
+	tintColor:"black",
+	height:30,
+	width:30
 }
 
 "#imgImg":{

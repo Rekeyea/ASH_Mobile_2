@@ -158,10 +158,6 @@ function Atras(){
 	$.publicaciones.close();
 }
 
-function verPublicaciones(){
-	Menu();
-}
-
 function sobreASH(){
 	//Alloy.createController("sobreASH").getView().open();
 	Alloy.Globals.AbrirVentana("sobreASH");

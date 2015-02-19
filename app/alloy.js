@@ -38,6 +38,6 @@ function Open(nombreController,parametros){
 	if(Alloy.Globals.Plataforma=="android"){
 		win.open();
 	}else{
-		navigator.openWindow();
+		navigator.openWindow(win);
 	}
 }

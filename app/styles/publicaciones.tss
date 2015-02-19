@@ -49,7 +49,7 @@
 	height:50,
 	width:50,
 	left:20,
-	top:0
+	borderRadius:25
 }
 
 ".verText":{
