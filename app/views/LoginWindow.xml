@@ -1,0 +1,7 @@
+<Alloy>
+	<Window class="container" id="index">
+		<Menu id="menu" platform="android" title="Animales Sin Hogar" ></Menu>
+		<ImageView id="logo"></ImageView>
+		<Button id="fbButton" onClick="IniciarSesionFacebook">Iniciar Sesión con Facebook</Button>
+	</Window>
+</Alloy>

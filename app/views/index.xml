@@ -1,9 +1,6 @@
 <Alloy>
 	<NavigationWindow platform="ios" id="navigator">
-		<Window class="container" id="index">
-			<Menu id="menu" platform="android" title="Animales Sin Hogar" ></Menu>
-			<ImageView id="logo"></ImageView>
-			<Button id="fbButton" onClick="IniciarSesionFacebook">Iniciar Sesión con Facebook</Button>
-		</Window>
+		<Require type="view" src="LoginWindow" id="loginIOS"></Require>
 	</NavigationWindow>
+	<Require type="view" src="LoginWindow" id="loginIOS" platform="android"></Require>
 </Alloy>

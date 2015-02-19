@@ -1,22 +1,3 @@
-".container": {
-	backgroundColor:"#51A58D"
-}
-
-"#fbButton":{
-	backgroundColor:"#3B5998",
-	backgroundSelectedColor:"#274585",
-	color:"white",
-	left:20,
-	right:20,
-	bottom:20,
-	image:"/images/facebook.png"
-}
-
-"#logo":{
-	height:240,
-	image:"/patitaBlanca.png"
-}
-
 "#navigator":{
 	tintColor:"white",
 	color:"white"
