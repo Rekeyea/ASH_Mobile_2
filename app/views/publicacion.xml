@@ -49,9 +49,9 @@
 					<ImageView id="imgP"></ImageView>
 				</View>
 				<View id="vwBtns">
-					<Button id="btnVerMapa" onClick="VerEnMapa">Ver Publicación en el Mapa</Button>
-					<Button id="btnContactar" onClick="Contactar">Contactarse con el Autor</Button>
-					<Button id="btnDenunciar" onClick="Denunciar">Denunciar Publicación</Button>
+					<Button id="btnContactar" onClick="Contactar" image="/telefono.png" backgroundColor="transparent"></Button>
+					<Button id="btnVerMapa" onClick="VerEnMapa" image="/mapa.png" backgroundColor="transparent"></Button>		
+					<Button id="btnDenunciar" onClick="Denunciar" color="red" backgroundColor="transparent">Denunciar!</Button>
 					<View top="20" height="1"></View>
 				</View>
 			</ScrollView>
