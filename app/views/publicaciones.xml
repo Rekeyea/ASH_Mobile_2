@@ -15,7 +15,6 @@
 					<Label text="Mapa" left="70"></Label>
 				</TableViewRow>
 				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
 				<TableViewRow class="tableViewMenu"  onClick="configurar">
 					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
 					<Label text="Configuración" left="70"></Label>

@@ -12,7 +12,7 @@
 Alloy.Globals.Facebook = require("facebook");
 Alloy.Globals.Map = require("ti.map");
 Alloy.Globals.Service = require("Service");
-Alloy.Globals.URL = "http://192.168.1.42/ASHServices/Service1.svc/";
+Alloy.Globals.URL = "http://192.168.1.105/ASHServices/Service1.svc/";
 Alloy.Globals.Publicaciones = Alloy.createCollection("Publicacion");
 Alloy.Globals.Tipos = ["Adopción","Perdido","Encontrado","Robado","Maltradado"];
 Alloy.Globals.ImagenesTipos = ["","/enadopcion.png","/perdido.png","/encontrado.png","/robado.png","/maltratado.png"];
