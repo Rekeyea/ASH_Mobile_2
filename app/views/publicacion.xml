@@ -11,7 +11,7 @@
 				</View>
 				<View id="vwBtns">
 					<Button id="btnContactar" onClick="Contactar" image="/telefono.png" backgroundColor="transparent"></Button>
-					<Button id="btnVerMapa" onClick="VerEnMapa" image="/mapa.png" backgroundColor="transparent"></Button>		
+					<Button id="btnVerMapa" onClick="VerEnMapa" image="/puntoMapa.png" backgroundColor="transparent"></Button>		
 					<Button id="btnDenunciar" onClick="Denunciar" color="red" backgroundColor="transparent">Denunciar!</Button>
 					<View top="20" height="1"></View>
 				</View>
