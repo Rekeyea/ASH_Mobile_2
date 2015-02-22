@@ -9,6 +9,9 @@ if(fb.loggedIn){
 	//TODO: El problema con esto es que tambien hay que hacerlo visible 
 	//cuando cierro sesion
 	$.fbButton.setVisible(false);
+	if(Alloy.Globals.Plataforma=="android"){
+		IniciarSesion(fb.uid);
+	}
 	//IniciarSesion(fb.uid);
 }
 
