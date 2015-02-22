@@ -5,9 +5,16 @@ var seguirRotando = false;
 var animation;
 var rotaciones = 0;
 
+if(fb.loggedIn){
+	//TODO: El problema con esto es que tambien hay que hacerlo visible 
+	//cuando cierro sesion
+	$.fbButton.setVisible(false);
+	//IniciarSesion(fb.uid);
+}
+
 fb.addEventListener("login",function(evt){
 	if(evt.success){
-		Ti.API.info("************ DATOS DE FACEBOOK **************");
+		
 		var data = evt.data;
 		var obj = {
 			"UID":data.id,
@@ -15,7 +22,6 @@ fb.addEventListener("login",function(evt){
 			"Mail":Alloy.Globals.String.urlDecode(data.email),
 		};
 		Ti.App.Properties.setObject("DatosUsuario",obj);
-		Ti.API.info(JSON.stringify(obj));
 		IniciarSesion(evt.uid);
 	}else{
 		Ti.UI.createAlertDialog({
@@ -25,12 +31,7 @@ fb.addEventListener("login",function(evt){
 	}
 });
 
-if(fb.loggedIn){
-	//TODO: El problema con esto es que tambien hay que hacerlo visible 
-	//cuando cierro sesion
-	$.fbButton.setVisible(false);
-	IniciarSesion(fb.uid);
-}
+
 
 Ti.App.addEventListener("CierroSesion",function(){
 	$.fbButton.setVisible(false);
@@ -81,7 +82,7 @@ function rotar () {
 		duration:1000
 	});
 	rotaciones++;
-	var degrees = rotaciones*360;
+	var degrees = rotaciones * (Alloy.Globals.Plataforma == "android" ) ? 360 : 180;
 	t = t.rotate(degrees);
 	spin.transform = t;
 	$.logo.animate(spin);
