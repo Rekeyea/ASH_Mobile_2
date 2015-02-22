@@ -19,6 +19,10 @@
 	top:0
 }
 
+"#btnVerMapa":{
+	tintColor:"white"
+}
+
 "#btnMenu":{
 	right:20,
 	height:20,

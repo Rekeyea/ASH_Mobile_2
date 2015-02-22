@@ -2,45 +2,12 @@
 	<Model id="modeloPublicacion" src="Publicacion" instance="true"></Model>
 	<Window id="index">
 		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" platform="android" />
-		<View id="sideMenu">
-		    <TableView>
-				<TableViewRow class="tableViewMenu"  onClick="verMapa" >
-					<ImageView left="10" height="37" image="/mapa.png"></ImageView>
-					<Label text="Mapa" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="verPublicaciones">
-					<ImageView left="10" height="37" image="/lista.png"></ImageView>
-					<Label text="Lista" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="configurar">
-					<ImageView left="10" height="37" image="/configuracion.png"></ImageView>
-					<Label text="Configuración" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="donar">
-					<ImageView left="10" height="37" image="/chanchita.png"></ImageView>
-					<Label text="Donaciones" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="padrinos">
-					<ImageView left="10" height="37" image="/corazon.png"></ImageView>
-					<Label text="Padrinos" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="adoptar">
-					<ImageView left="10" height="37" image="/casa.png"></ImageView>
-					<Label text="Adopción" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-				<TableViewRow class="tableViewMenu"  onClick="sobreASH">
-					<ImageView left="10" height="37" image="/patitaVerde.png"></ImageView>
-					<Label text="Sobre ASH" left="70"></Label>
-				</TableViewRow>
-				<TableViewRow ><View class="line" ></View></TableViewRow>
-			</TableView>
-		</View>
+		<Menu id="menu" platform="android" title="Animales Sin Hogar"   >
+			<MenuItem  title="Mapa" onClick="VerEnMapa" icon="/irAMapa.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
+        </Menu>
+        <RightNavButton>
+            <Button id="btnVerMapa" onClick="VerEnMapa" image="/irAMapa.png"/>
+        </RightNavButton>
 		<View id="contenedor" zIndex="1">
 			<ScrollView id="scroll">
 				<Label id="titulo" class="lblTitulo" text="{$.modeloPublicacion.titulo}"></Label>
@@ -49,7 +16,6 @@
 					<ImageView id="imgP"></ImageView>
 				</View>
 				<View id="vwBtns">
-					<Button id="btnVerMapa" onClick="VerEnMapa">Ver Publicación en el Mapa</Button>
 					<Button id="btnContactar" onClick="Contactar">Contactarse con el Autor</Button>
 					<Button id="btnDenunciar" onClick="Denunciar">Denunciar Publicación</Button>
 					<View top="20" height="1"></View>
