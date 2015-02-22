@@ -63,7 +63,8 @@ function IrAPublicacion(evt){
 
 function MapPublicacionAnnotation(publicaciones){
 	var listOfAnnotations = _.map(publicaciones,function(publicacion){
-		var img = Alloy.Globals.MapaImagenesTipos[publicacion.tipo];
+		var img = Alloy.Globals.MapaImagenesTipos[parseInt(publicacion.tipo)];
+		Ti.API.info("EL TIPO DE PUBLICACION ES: "+img);
 		var annotationData = {
 			image: img,
 			latitude:publicacion.ubicacion_X,

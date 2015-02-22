@@ -46,15 +46,15 @@
 }
 
 "#imgP":{
-	left:0,
 	width:"100%",
-	bottom:20
+	top:0
 }
 
 "#vwBtns":{
 	top:20,
 	width: Titanium.UI.SIZE,
-	layout:"horizontal"
+	layout:"horizontal",
+	height:Titanium.UI.SIZE
 }
 
 "Button":{
@@ -63,19 +63,6 @@
 	tintColor:"#51A58D"
 }
 
-"#actionbar": {
-    icon: "/menu.png",
-    backgroundColor:"#51A58D",
-    
-}
-
-"#sideMenu":{
-	height: Ti.UI.FILL,
-	backgroundColor:"#F7F7F7",
-	width: 200,
-	left:0,
-	top:0,
-}
 
 ".tableViewMenu":{
 	color:"#51A58D",
@@ -90,8 +77,4 @@
 	right:0,
 	borderWidth:1,
 	borderColor:"#c7c7cc",
-}
-
-"#sideMenu[platform=ios]":{
-	top:60
 }

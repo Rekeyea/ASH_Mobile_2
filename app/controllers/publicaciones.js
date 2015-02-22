@@ -35,7 +35,7 @@ function transformarPublicacion(publicacion){
 		titulo:copia.titulo,
 		descripcion:copia.descripcion,
 		foto:copia.foto,
-		tipoImg:tiposImgs[copia.tipo-1],
+		tipoImg:tiposImgs[copia.tipo],
 		id:copia.IdPublicacion
 	};
 	return res;
