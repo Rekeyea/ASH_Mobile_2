@@ -10,7 +10,7 @@
 					<TableViewRow class="tableViewTipos" itemId="2" onClick="CategoriaSeleccionada" title="Animales Perdidos" leftImage="/perdido.png" >
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" itemId="3" onClick="CategoriaSeleccionada" title="Animales Encontrados" leftImage="/encontrados.png">
+					<TableViewRow class="tableViewTipos" itemId="3" onClick="CategoriaSeleccionada" title="Animales Encontrados" leftImage="/encontrado.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
 					<TableViewRow class="tableViewTipos" itemId="4" onClick="CategoriaSeleccionada" title="Animales Robados" leftImage="/robado.png">
