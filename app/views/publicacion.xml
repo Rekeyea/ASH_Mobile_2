@@ -1,16 +1,13 @@
 <Alloy>
 	<Model id="modeloPublicacion" src="Publicacion" instance="true"></Model>
 	<Window id="index">
-		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" platform="android" />
-<<<<<<< HEAD
+		<ActionBar id="actionbar" title="Animales Sin Hogar" platform="android" />
 		<Menu id="menu" platform="android" title="Animales Sin Hogar"   >
 			<MenuItem  title="Mapa" onClick="VerEnMapa" icon="/irAMapa.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS"/> 
         </Menu>
         <RightNavButton>
             <Button id="btnVerMapa" onClick="VerEnMapa" image="/irAMapa.png"/>
         </RightNavButton>
-=======
->>>>>>> 9af4da645b28c61d5505df7b7c0d66c4a183a74f
 		<View id="contenedor" zIndex="1">
 			<ScrollView id="scroll">
 				<Label id="titulo" class="lblTitulo" text="{$.modeloPublicacion.titulo}"></Label>
@@ -19,14 +16,8 @@
 					<ImageView id="imgP"></ImageView>
 				</View>
 				<View id="vwBtns">
-<<<<<<< HEAD
 					<Button id="btnContactar" onClick="Contactar">Contactarse con el Autor</Button>
 					<Button id="btnDenunciar" onClick="Denunciar">Denunciar Publicación</Button>
-=======
-					<Button id="btnContactar" onClick="Contactar" image="/telefono.png" backgroundColor="transparent"></Button>
-					<Button id="btnVerMapa" onClick="VerEnMapa" image="/puntoMapa.png" backgroundColor="transparent"></Button>		
-					<Button id="btnDenunciar" onClick="Denunciar" color="red" backgroundColor="transparent">Denunciar!</Button>
->>>>>>> 9af4da645b28c61d5505df7b7c0d66c4a183a74f
 					<View top="20" height="1"></View>
 				</View>
 			</ScrollView>

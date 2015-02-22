@@ -1,22 +1,22 @@
 <Alloy>
 	<Window id="tiposPublicaciones">
-		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
+		<ActionBar id="actionbar" title="Animales Sin Hogar"/>
 		<View id="contenedor"  zIndex="1">
 			<ScrollView>
 				<TableView>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales en Adopcion" leftImage="/enadopcion.png">
+					<TableViewRow class="tableViewTipos" itemId="1" onClick="CategoriaSeleccionada" title="Animales en Adopcion" leftImage="/enadopcion.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line"></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Perdidos" leftImage="/perdido.png" >
+					<TableViewRow class="tableViewTipos" itemId="2" onClick="CategoriaSeleccionada" title="Animales Perdidos" leftImage="/perdido.png" >
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos"  onClick="CategoriaSeleccionada" title="Animales Encontrados" leftImage="/encontrados.png">
+					<TableViewRow class="tableViewTipos" itemId="3" onClick="CategoriaSeleccionada" title="Animales Encontrados" leftImage="/encontrados.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Robados" leftImage="/robado.png">
+					<TableViewRow class="tableViewTipos" itemId="4" onClick="CategoriaSeleccionada" title="Animales Robados" leftImage="/robado.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Maltratados" leftImage="/maltratado.png">
+					<TableViewRow class="tableViewTipos" itemId="5" onClick="CategoriaSeleccionada" title="Animales Maltratados" leftImage="/maltratado.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
 				</TableView>

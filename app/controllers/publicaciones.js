@@ -17,12 +17,16 @@ var kilometers = 10;
 
 $.publicaciones.addEventListener("open",ObtenerPublicaciones);
 
+Ti.App.addEventListener("RECARGAR_PUBLICACIONES",function(){
+	Ti.API.info("RECARGAR PUBLICACIONES");
+	ObtenerPublicaciones(true);
+});
+
 var btnMenu = Ti.UI.createButton({
 	image:"/menu.png"
 });
 btnMenu.addEventListener("click",Menu);
 $.publicaciones.leftNavButton = btnMenu;
-
 
 function transformarPublicacion(publicacion){
 	var copia = publicacion.toJSON();
@@ -37,7 +41,7 @@ function transformarPublicacion(publicacion){
 	return res;
 }
 
-function ObtenerPublicaciones(){
+function ObtenerPublicaciones(restart){
 	if(Ti.Geolocation.locationServicesEnabled){
 		if(Ti.Platform.getOsname()=="android"){
 			var providerGps = Ti.Geolocation.Android.createLocationProvider({
@@ -70,10 +74,15 @@ function ObtenerPublicaciones(){
 		return;
 	}
 	function Obtener(coords){
+		if(restart){
+			page = 0;
+		}else{
+			
+		}
 		page++;
 		var obj = {
 			IdFacebook : facebookId,
-			tipo:tipos.indexOf(elegido),
+			tipo:0,
 			masCerca:nearest,
 			recientes:recent,
 			ubicacion_actual_x:coords.longitude,
@@ -86,6 +95,8 @@ function ObtenerPublicaciones(){
 			Accion:"VerPublicaciones",
 			Data:JSON.stringify(obj),
 			Correcto:function(d){
+				Ti.API.info('ESTO ES LO QUE ME VIENE');
+				Ti.API.info(JSON.stringify(_.pluck(d,"IdPublicacion")));
 				_.each(d,function(elem){
 					//TODO: esto es provisorio
 					elem.foto = Titanium.Utils.base64decode(elem.foto.split(",")[1]);

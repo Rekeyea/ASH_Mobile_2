@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="sobreASH">
-		<ActionBar id="actionbar" title="Animales Sin Hogar" onHomeIconItemSelected="Menu" />
+		<ActionBar id="actionbar" title="Animales Sin Hogar"/>
 		<View id="contenedor" zIndex="1">
 			<ScrollView>
 				<View layout="vertical">

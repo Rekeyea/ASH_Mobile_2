@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 
-var tipo = args.tipo + 1 || 0;
+var tipo = parseInt(args.tipo);
+var anterior = args.anterior;
 
 function confImag(){
 	var imagen = Alloy.Globals.ImagenesTipos[tipo];
@@ -64,12 +65,21 @@ function Publicar(){
 		foto:Ti.Utils.base64encode(bytes).toString(),
 		fecha:"2014-12-21"
 	};
-	Ti.API.info(JSON.stringify(obj));
 	var postData = {
 		Accion:"RealizarPublicacion",
 		Data:JSON.stringify(obj),
 		Correcto:function(d){
-			$.nuevaPublicacion.close();
+			if(Alloy.Globals.Plataforma=="android"){
+				anterior.close();
+				$.nuevaPublicacion.close();
+				Ti.App.fireEvent("RECARGAR_PUBLICACIONES");	
+			}else{
+				anterior.addEventListener("close",function(){
+					$.nuevaPublicacion.close();
+					Ti.App.fireEvent("RECARGAR_PUBLICACIONES");
+				});	
+				anterior.close();
+			}
 		},
 		Error:function(e){
 			Ti.UI.createAlertDialog({

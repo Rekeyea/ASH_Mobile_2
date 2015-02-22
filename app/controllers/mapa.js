@@ -56,7 +56,9 @@ function BuscarPublicaciones(tipo){
 }
 
 function IrAPublicacion(evt){
-	Ti.API.error(JSON.stringify(evt));
+	Alloy.Globals.AbrirVentana("publicacion",{
+		"Publicacion":evt.annotation.publicacion
+	});
 }
 
 function MapPublicacionAnnotation(publicaciones){
