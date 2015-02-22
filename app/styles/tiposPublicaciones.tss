@@ -8,39 +8,8 @@
 	title:"Publicar"
 }
 
-"#navbar":{
-	top:20,
-	backgroundColor:"#51A58D",
-	height:40
-}
-"#sideMenu":{
-	height: Ti.UI.FILL,
-	backgroundColor:"#F7F7F7",
-	width: 200,
-	left:0,
-	top:0,
-}
-
 "#contenedor":{
 	top:0
-}
-
-"#btnMenu":{
-	right:20,
-	height:20,
-	width:20,
-	tintColor:"white",
-	image:"/menu.png",
-	backgroundColor:" transparent"
-}
-
-"#btnAtras":{
-	left:20,
-	height:20,
-	width:20,
-	tintColor:"white",
-	image:"/back.png",
-	backgroundColor:" transparent"
 }
 
 "#tituloMenu":{
@@ -68,10 +37,6 @@
 
 ".tableViewTipos":{
 	color:"#51A58D",
-	left: 15,
+	left: 0,
 	height: 70,
-}
-
-"#sideMenu[platform=ios]":{
-	top:60
 }

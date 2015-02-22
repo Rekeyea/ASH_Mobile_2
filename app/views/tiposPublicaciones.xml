@@ -4,29 +4,19 @@
 		<View id="contenedor"  zIndex="1">
 			<ScrollView>
 				<TableView>
-					<TableViewRow class="tableViewTipos"   onClick="CategoriaSeleccionada" >
-						<ImageView left="10"  image="/enadopcion.png"></ImageView>
-						<Label text="Animales en Adopcion" left="100"></Label>
+					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales en Adopcion" leftImage="/enadopcion.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line"></View></TableViewRow>
-					<TableViewRow class="tableViewTipos"  onClick="CategoriaSeleccionada" >
-						<ImageView left="10"  image="/perdido.png"></ImageView>
-						<Label text="Animales Perdidos" left="100"></Label>
+					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Perdidos" leftImage="/perdido.png" >
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos"  onClick="CategoriaSeleccionada">
-						<ImageView left="10"  image="/encontrados.png"></ImageView>
-						<Label text="Animales Encontrados" left="100"></Label>
+					<TableViewRow class="tableViewTipos"  onClick="CategoriaSeleccionada" title="Animales Encontrados" leftImage="/encontrados.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada">
-						<ImageView left="10"  image="/robado.png"></ImageView>
-						<Label text="Animales Robados" left="100"></Label>
+					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Robados" leftImage="/robado.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
-					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada">
-						<ImageView left="10" image="/maltratado.png"></ImageView>
-						<Label text="Animales Maltratados" left="100"></Label>
+					<TableViewRow class="tableViewTipos" onClick="CategoriaSeleccionada" title="Animales Maltratados" leftImage="/maltratado.png">
 					</TableViewRow>
 					<TableViewRow ><View class="line" ></View></TableViewRow>
 				</TableView>

@@ -44,8 +44,6 @@ function IniciarSesion(id){
 		Data:id,
 		Correcto:function(data){
 			Ti.API.info("PUEDO PASAR A LA SIGUIENTE PANTALLA");
-			//Alloy.createController("publicaciones").getView().open();
-			//Alloy.createController("publicaciones");
 			Alloy.Globals.AbrirVentana("publicaciones");
 		},
 		Error: function(evt){
@@ -55,8 +53,6 @@ function IniciarSesion(id){
 			}).show();
 		}
 	};
-	Ti.API.info("********************* OBJETO ********************");
-	Ti.API.info(JSON.stringify(obj));
 	Alloy.Globals.Service.Ejecutar(obj);
 	setTimeout(function(){
 		seguirRotando = false;

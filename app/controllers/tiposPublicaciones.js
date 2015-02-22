@@ -4,4 +4,5 @@ function CategoriaSeleccionada(e){
 	Alloy.Globals.AbrirVentana("nuevaPublicacion",{
 		tipo: e.index
 	});
+	$.tiposPublicaciones.close();
 }

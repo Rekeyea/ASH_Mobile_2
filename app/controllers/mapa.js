@@ -2,7 +2,6 @@
 var args = arguments[0] || {};
 
 var unaPublicacion = args["unica"] || false;
-Ti.API.info("TENGO UNA SOLA PUBLICACION: "+unaPublicacion);
 var miPublicacion = args["Publicacion"] || null;
 
 var imagenTipo = Alloy.Globals.ImagenesTipos;
@@ -44,7 +43,6 @@ function BuscarPublicaciones(tipo){
 		"Data":postData,
 		"Correcto":function(data){
 			//Obtengo las publicaciones
-			Ti.API.info("VINIERON LAS PUBLICACIONES!!");
 			CargarMapa(centro,data);
 			enCambio = false;
 		},
@@ -57,6 +55,10 @@ function BuscarPublicaciones(tipo){
 	});	
 }
 
+function IrAPublicacion(evt){
+	Ti.API.error(JSON.stringify(evt));
+}
+
 function MapPublicacionAnnotation(publicaciones){
 	var listOfAnnotations = _.map(publicaciones,function(publicacion){
 		var img = Alloy.Globals.MapaImagenesTipos[publicacion.tipo];
@@ -65,7 +67,8 @@ function MapPublicacionAnnotation(publicaciones){
 			latitude:publicacion.ubicacion_X,
 			longitude:publicacion.ubicacion_Y,
 			subtitle:publicacion.descripcion,
-			title:publicacion.titulo
+			title:publicacion.titulo,
+			publicacion:publicacion
 		};
 		var annotation = Alloy.Globals.Map.createAnnotation(annotationData);
 		return annotation;

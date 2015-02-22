@@ -21,5 +21,6 @@
 	navBarHidden:false,
 	tintColor:"white",
 	translucent:false,
-	backButtonTitle:""
+	backButtonTitle:"",
+	fullscreen:true
 }
